@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>register</h1>
+    <h1>Registration</h1>
 
     <input type= "email" 
     name = "email" 
@@ -12,8 +12,28 @@
     v-model="password"
     placeholder="password" />
     <br>
+    <input type= "text" 
+    name = "firstname" 
+    v-model="firstname"
+    placeholder="First Name" />
+    <br>
+    <input type= "text" 
+    name = "lastname" 
+    v-model="lastname"
+    placeholder="Last Name" />
+    <br>
+    <input type= "text" 
+    name = "address" 
+    v-model="address"
+    placeholder="Address" />
+    <br>
+    <input type= "phone" 
+    name = "phonenum" 
+    v-model="phonenum"
+    placeholder="Phone #" />
 
-
+    <div class="error" v-html="error"/>
+    <br>
     <button @click="register">Register</button>
 
   </div>
@@ -25,22 +45,36 @@ export default {
   data() {
     return {
       email: '',
-      password: ''
+      password: '',
+      firstname: '',
+      lastname: '',
+      address: '',
+      phonenum: '',
+      error: null
     }
   },
   methods: {
-    async register(){
-      const response = await authservice.register({
-        email: this.email,
-        password:this.password
-      })
-      console.log(response.data)
+    async register() {
+      try {
+        await authservice.register({
+          email: this.email,
+          password: this.password,
+          firstname: this.firstname,
+          lastname: this.lastname,
+          address: this.address,
+          phonenum: this.phonenum
+      }) }
+      catch (error) {
+        this.error = error.response.data.error
+      }
+      }   
     }
   }
- }
 </script>
 
 
 <style scoped>
-
+.error{
+  color: red;
+}
 </style>
