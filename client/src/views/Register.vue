@@ -3,29 +3,45 @@
     <v-flex xs6 offset-xs3>
       <v-card elevation="6">
       <div class>
-        <v-toolbar flat dense color="#9E9E9E" dark>
+        <v-toolbar flat dense color="#303F9F" dark>
           <v-toolbar-title>Register</v-toolbar-title>
         </v-toolbar>
-          <div class ="pl-4 pr-4 pt-2 pb-2">
-            <input type= "email" 
-            name = "email" 
+          <div class ="pl-4 pr-4 pt-4 pb-2">
+            <v-text-field
+            filled
+            dense
+            outlined
+            ref="email"
             v-model="email"
-            placeholder="email" />
+            placeholder="email@example.com"
+            label="Email"
+             />
             <br>
-            <input type= "password" 
-            name = "password" 
+            <v-text-field
+            filled
+            outlined
+            dense
+            ref="password"
             v-model="password"
-            placeholder="password" />
+            placeholder=""
+            label="Password"
+             />
             <br>
             <v-text-field 
-            ref="lastname"
-            v-model="lastname"
+            ref="firstname"
+            filled
+            outlined
+            dense
+            v-model="firstname"
             placeholder="First Name"
             label="First Name"
              />
             <br>
             <v-text-field 
             ref="lastname"
+            filled
+            outlined
+            dense
             v-model="lastname"
             placeholder="Last Name"
             label="Last Name"
@@ -33,6 +49,9 @@
             <br>
             <v-text-field 
             ref="address"
+            filled
+            outlined
+            dense
             v-model="address"
             placeholder="Address"
             label="Address Line"
@@ -41,6 +60,9 @@
             <br>
             <v-text-field 
             ref="phonenum"
+            filled
+            outlined
+            dense
             v-model="phonenum"
             placeholder="(777)777-1234"
             label="Phone #"
@@ -48,8 +70,8 @@
 
             <div class="error" v-html="error"/>
             <br>
-            <v-btn @click="register">Register</v-btn>
-
+            <v-btn @click="register" color="#98fb98">Register</v-btn>
+            <v-btn to="/login" color="#78909C">Already have an account?</v-btn>
           </div>
       </div>
       </v-card>
@@ -81,6 +103,7 @@ export default {
           lastname: this.lastname,
           address: this.address,
           phonenum: this.phonenum
+          
       }) }
       catch (error) {
         this.error = error.response.data.error
@@ -96,7 +119,7 @@ export default {
   color: red;
 }
 
-input{
-  box-sizing: border-box;
+.v-btn{
+  margin: 1%
 }
 </style>
