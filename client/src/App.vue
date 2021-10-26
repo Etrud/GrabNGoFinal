@@ -1,3 +1,4 @@
+<!-- App.vue -->
 <template>
   <div id="app">
     <div id="nav">
@@ -5,11 +6,16 @@
       <router-link to="/about">About</router-link> |
        <router-link to="/register">Register</router-link>
     </div>
+    <v-app>
     <router-view/>
+    </v-app>
   </div>
 </template>
 
+
 <style>
+
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

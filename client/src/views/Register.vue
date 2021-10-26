@@ -1,42 +1,60 @@
 <template>
-  <div>
-    <h1>Registration</h1>
+  <v-container fluid column>
+    <v-flex xs6 offset-xs3>
+      <v-card elevation="6">
+      <div class>
+        <v-toolbar flat dense color="#9E9E9E" dark>
+          <v-toolbar-title>Register</v-toolbar-title>
+        </v-toolbar>
+          <div class ="pl-4 pr-4 pt-2 pb-2">
+            <input type= "email" 
+            name = "email" 
+            v-model="email"
+            placeholder="email" />
+            <br>
+            <input type= "password" 
+            name = "password" 
+            v-model="password"
+            placeholder="password" />
+            <br>
+            <v-text-field 
+            ref="lastname"
+            v-model="lastname"
+            placeholder="First Name"
+            label="First Name"
+             />
+            <br>
+            <v-text-field 
+            ref="lastname"
+            v-model="lastname"
+            placeholder="Last Name"
+            label="Last Name"
+             />
+            <br>
+            <v-text-field 
+            ref="address"
+            v-model="address"
+            placeholder="Address"
+            label="Address Line"
+            counter="50"
+             />
+            <br>
+            <v-text-field 
+            ref="phonenum"
+            v-model="phonenum"
+            placeholder="(777)777-1234"
+            label="Phone #"
+             />
 
-    <input type= "email" 
-    name = "email" 
-    v-model="email"
-    placeholder="email" />
-    <br>
-    <input type= "password" 
-    name = "password" 
-    v-model="password"
-    placeholder="password" />
-    <br>
-    <input type= "text" 
-    name = "firstname" 
-    v-model="firstname"
-    placeholder="First Name" />
-    <br>
-    <input type= "text" 
-    name = "lastname" 
-    v-model="lastname"
-    placeholder="Last Name" />
-    <br>
-    <input type= "text" 
-    name = "address" 
-    v-model="address"
-    placeholder="Address" />
-    <br>
-    <input type= "phone" 
-    name = "phonenum" 
-    v-model="phonenum"
-    placeholder="Phone #" />
+            <div class="error" v-html="error"/>
+            <br>
+            <v-btn @click="register">Register</v-btn>
 
-    <div class="error" v-html="error"/>
-    <br>
-    <button @click="register">Register</button>
-
-  </div>
+          </div>
+      </div>
+      </v-card>
+    </v-flex>
+  </v-container>
 </template>
 
 <script>
@@ -76,5 +94,9 @@ export default {
 <style scoped>
 .error{
   color: red;
+}
+
+input{
+  box-sizing: border-box;
 }
 </style>
