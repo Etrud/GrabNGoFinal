@@ -7,6 +7,7 @@
           <v-toolbar-title>Register</v-toolbar-title>
         </v-toolbar>
           <div class ="pl-4 pr-4 pt-4 pb-2">
+            <form name ="register-form" autocomplete="off">
             <v-text-field
             filled
             dense
@@ -21,6 +22,7 @@
             filled
             outlined
             dense
+            type="password"
             ref="password"
             v-model="password"
             placeholder=""
@@ -67,7 +69,7 @@
             placeholder="(777)777-1234"
             label="Phone #"
              />
-
+            </form>
             <div class="error" v-html="error"/>
             <br>
             <v-btn @click="register" color="#98fb98">Register</v-btn>

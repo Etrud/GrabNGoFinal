@@ -21,6 +21,7 @@
             filled
             outlined
             dense
+            type="password"
             ref="password"
             v-model="password"
             placeholder=""
