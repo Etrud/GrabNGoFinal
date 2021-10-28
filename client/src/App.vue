@@ -6,13 +6,17 @@
     <v-app>
       <div id="nav" class="d-flex">
       <v-app-bar dense fixed >
-        <v-toolbar-title>Grab N Go Scheduler</v-toolbar-title>
+        <v-toolbar-title style="cursor: pointer" @click="$router.push('/')">Grab N Go Scheduler</v-toolbar-title>
         <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
 
         <v-spacer></v-spacer>
 
         <v-card flat class="d-flex justify-end">
           <router-link to="/Login">Login / Register</router-link>
+          <v-icon>mdi-login</v-icon>
+        </v-card>
+        <v-card flat class="d-flex justify-end">
+          <router-link to="/">Logout</router-link>
           <v-icon>mdi-login</v-icon>
         </v-card>
       </v-app-bar>
@@ -29,35 +33,35 @@
           v-model="group"
           active-class="deep-purple--text text--accent-4"
         >
-          <v-list-item :to="'/'">
+          <v-list-item :to="'/home'">
             <v-list-item-icon>
               <v-icon>mdi-home</v-icon>
             </v-list-item-icon>
             <v-list-item-title>Home</v-list-item-title>
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item :to="'/profile'">
             <v-list-item-icon>
               <v-icon>mdi-account</v-icon>
             </v-list-item-icon>
             <v-list-item-title>Account</v-list-item-title>
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item :to="'/punch'">
             <v-list-item-icon>
               <v-icon>mdi-clock</v-icon>
             </v-list-item-icon>
             <v-list-item-title>Punches</v-list-item-title>
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item :to="'/schedule'">
             <v-list-item-icon>
               <v-icon>mdi-calendar</v-icon>
             </v-list-item-icon>
             <v-list-item-title>Schedule</v-list-item-title>
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item :to="'/contact'">
             <v-list-item-icon>
               <v-icon>mdi-contacts-outline</v-icon>
             </v-list-item-icon>
