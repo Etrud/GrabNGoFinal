@@ -1,18 +1,18 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Grab N Go Scheduler"/>
+  <div class="about">
+    <h1>Welcome! USERNAME</h1>
+    <Clock/>
+    <todayCalendar/>
   </div>
 </template>
 
+
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Clock from '@/components/Clock.vue'
+import todayCalendar from '@/components/todayCalendar.vue'
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
+  components: { Clock, todayCalendar },
+    
 }
 </script>
