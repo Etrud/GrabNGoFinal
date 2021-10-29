@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>Welcome! USERNAME</h1>
+    <h1>Welcome! {{$store.state.user}}</h1>
     <Clock/>
     <todayCalendar/>
   </div>
@@ -13,6 +13,6 @@ import todayCalendar from '@/components/todayCalendar.vue'
 
 export default {
   components: { Clock, todayCalendar },
-    
 }
+
 </script>

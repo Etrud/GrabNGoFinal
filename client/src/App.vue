@@ -7,16 +7,18 @@
       <div id="nav" class="d-flex">
       <v-app-bar dense fixed >
         <v-toolbar-title style="cursor: pointer" @click="$router.push('/')">Grab N Go Scheduler</v-toolbar-title>
-        <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon @click="drawer = true" v-if="$store.state.isUserLoggedIn"></v-app-bar-nav-icon>
 
         <v-spacer></v-spacer>
 
-        <v-card flat class="d-flex justify-end">
+        <v-card flat class="d-flex justify-end"
+           v-if="!$store.state.isUserLoggedIn">
           <router-link to="/Login">Login / Register</router-link>
           <v-icon>mdi-login</v-icon>
         </v-card>
-        <v-card flat class="d-flex justify-end">
-          <router-link to="/">Logout</router-link>
+        <v-card flat class="d-flex justify-end"
+          v-if="$store.state.isUserLoggedIn">
+          <v-btn  @click="logout">Logout</v-btn>
           <v-icon>mdi-login</v-icon>
         </v-card>
       </v-app-bar>
@@ -92,6 +94,15 @@
       drawer: false,
       group: null,
     }),
+    methods: {
+      logout() {
+        this.$store.dispatch('setToken', null)
+        this.$store.dispatch('setUser', null)
+        this.$router.push({
+          name: 'Launch'
+        })
+      }
+    }
   }
 </script>
 
