@@ -18,6 +18,10 @@
         </v-card>
         <v-card flat class="d-flex justify-end"
           v-if="$store.state.isUserLoggedIn">
+          {{email}}
+        </v-card>
+        <v-card flat class="d-flex justify-end"
+          v-if="$store.state.isUserLoggedIn">
           <v-btn  @click="logout">Logout</v-btn>
           <v-icon>mdi-login</v-icon>
         </v-card>
@@ -102,6 +106,12 @@
           name: 'Launch'
         })
       }
+    },
+    computed: {
+      email: function() {
+      var email = JSON.stringify(this.$store.state.user.email)
+      return email.replace(/['"]+/g, '')
+  }
     }
   }
 </script>
