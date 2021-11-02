@@ -13,7 +13,8 @@ export default new Vuex.Store({
     state: {
         token: null,
         user: null,
-        isUserLoggedIn: false
+        isUserLoggedIn: false,
+        clockIn: false
     },
     mutations: {
         setToken(state, token) {
@@ -28,6 +29,9 @@ export default new Vuex.Store({
         setUser(state, user) {
             state.user = user
         },
+        setClockin(state, statement) {
+            state.clockIn = statement
+        }
     },
     actions: {
         setToken({commit}, token) {
@@ -35,6 +39,9 @@ export default new Vuex.Store({
         },
         setUser({commit}, user) {
             commit('setUser', user)
-        }
+        },
+        setClockin({commit}, statement) {
+            commit('setClockin', statement)
+        },
     },
 })
