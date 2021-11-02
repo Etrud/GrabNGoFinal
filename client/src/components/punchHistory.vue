@@ -24,10 +24,7 @@ export default {
             sortable: false,
             value: 'id',
           },
-          {
-            text: 'Employee ID #',
-            value: 'employeeID',
-          },
+          
           { text: 'Punch Time', value: 'punchTime' },
           { text: 'Punch In Message', value: 'punchMessage' },
         ]
@@ -35,7 +32,8 @@ export default {
   },
   async mounted() {
     //do a request to a backend for all users
-    this.punches = (await punchservice.index()).data;
+    const userId = this.$store.state.user.id;
+    this.punches = (await punchservice.show(userId)).data;
   },
 };
 </script>

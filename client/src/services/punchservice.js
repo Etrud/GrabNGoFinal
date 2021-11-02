@@ -6,5 +6,8 @@ export default {
     },
     index() {
         return api().get('punch/all')
+    },
+    show(userId) {
+        return api().get(`punch/${userId}`)
     }
 }
