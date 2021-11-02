@@ -1,6 +1,9 @@
 <template>
   <div class="app">
-    <VueClock />
+    <v-col>
+    <VueClock /><br>
+    {{ new Date().toDateString() }}
+    </v-col>
   </div>
 </template>
 
@@ -9,5 +12,6 @@ import VueClock from '@dangvanthanh/vue-clock'
 
 export default {
   components: { VueClock },
+  
 }
 </script>
