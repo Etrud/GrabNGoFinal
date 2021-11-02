@@ -51,5 +51,6 @@ module.exports = {
           error:'Error has occured during login'
         })
       }
-  }
+  },
+
 }

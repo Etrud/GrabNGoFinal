@@ -1,6 +1,7 @@
 <template>
-  <v-container fluid column>
-    <v-flex xs6 offset-xs3>
+  <v-container fluid fill-height>
+    <v-layout align-center justify-center>
+    <v-flex xs12 sm8 md4>
       <v-card elevation="6">
       <div class>
         <v-toolbar flat dense color="#303F9F" dark>
@@ -38,6 +39,7 @@
       </div>
       </v-card>
     </v-flex>
+    </v-layout>
   </v-container>
 </template>
 

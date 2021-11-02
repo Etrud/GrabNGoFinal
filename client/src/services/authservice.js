@@ -6,6 +6,9 @@ export default {
     },
     login (credentials) {
         return api().post('login', credentials)
+    },
+    update (credentials) {
+        return api().post('profileupdate', credentials)
     }
 }
 
