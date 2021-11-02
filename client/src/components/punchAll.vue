@@ -6,7 +6,22 @@
       :items="punches"
       :items-per-page="5"
       class="elevation-1"
-    ></v-data-table>
+    ><template v-slot:[`item.actions`]="{ item }">
+      <v-icon
+        small
+        class="mr-2"
+        @click="editItem(item)"
+      >
+        mdi-pencil
+      </v-icon>
+      <v-icon
+        small
+        @click="deleteItem(item)"
+      >
+        mdi-delete
+      </v-icon>
+    </template>
+    </v-data-table>
   </div>
 </template>
 
@@ -38,6 +53,7 @@ export default {
           },
           { text: 'Punch Time', value: 'punchTime' },
           { text: 'Punch In Message', value: 'punchMessage' },
+          { text: 'Actions', value: 'actions', sortable: false },
         ]
       }
   },
