@@ -22,4 +22,7 @@ module.exports = (app) => {
 
   app.get('/punch/all',
     punchcontroller.index)
+
+  app.get('/punch/:userId',
+    punchcontroller.show)
 }

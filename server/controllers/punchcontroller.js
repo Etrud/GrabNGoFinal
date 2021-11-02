@@ -25,4 +25,19 @@ module.exports = {
 
     }
   },
+  async show (req, res) {
+    try {
+      const punches = await Punch.findAll({
+        where: {
+          employeeID: req.params.userId
+        }
+        })
+      res.send(punches)
+  }catch (err) {
+    res.status(500).send({
+      error: 'An error occured grabbing users'
+    })
+
+  }
+},
 }

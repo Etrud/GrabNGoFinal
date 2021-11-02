@@ -24,6 +24,8 @@ fs
 db.sequelize = sequelize
 db.Sequelize = Sequelize
 
+//relationship establishments
+
 
 
 module.exports = db
