@@ -28,6 +28,14 @@ export default {
             text: 'Employee ID #',
             value: 'employeeID',
           },
+          {
+            text: 'Employee F. Name',
+            value: 'User.firstname',
+          },
+          {
+            text: 'Employee L. Name',
+            value: 'User.lastname',
+          },
           { text: 'Punch Time', value: 'punchTime' },
           { text: 'Punch In Message', value: 'punchMessage' },
         ]

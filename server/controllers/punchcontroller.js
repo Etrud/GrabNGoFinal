@@ -1,4 +1,4 @@
-const { Punch } = require('../models')
+const { Punch, User } = require('../models')
 
 module.exports = {
   async registerPunch(req, res) {
@@ -15,6 +15,9 @@ module.exports = {
     try {
       const punchs = await Punch.findAll({
         attributes: ['id', 'employeeID', 'punchTime', 'punchMessage'],
+        include: [{
+          model: User
+        }]
 
       })
       res.send(punchs)

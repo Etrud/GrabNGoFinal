@@ -1,11 +1,11 @@
-const {User} = require('../models')
+const {User, Punch} = require('../models')
 
 
 module.exports = {
    async index (req, res) {
       try {
         const users = await User.findAll({
-          
+           //include: Punch
         })
         res.send(users)
     }catch (err) {

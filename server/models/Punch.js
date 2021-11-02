@@ -1,5 +1,5 @@
-module.exports = (sequelize, DataTypes) =>
-  sequelize.define('Punch',{
+module.exports = (sequelize, DataTypes) => {
+  const Punch = sequelize.define('Punch',{
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -7,10 +7,6 @@ module.exports = (sequelize, DataTypes) =>
       }, 
     employeeID: {
         type: DataTypes.INTEGER,
-        references: {         // Employee belongsTo Company 1:1
-          model: "Users",
-          key: "id"
-        }
       },
       punchTime : {
         type: DataTypes.DATE
@@ -18,4 +14,13 @@ module.exports = (sequelize, DataTypes) =>
       punchMessage : {
         type: DataTypes.BOOLEAN
       },
-  }) 
+  })
+
+
+  Punch.associate = function (models){
+    Punch.belongsTo(models.User, {foreignKey: 'employeeID'})
+  }
+
+  
+  return Punch 
+}
