@@ -6,8 +6,10 @@ import Home from '../views/Home.vue'
 import Punch from '../views/Punch.vue'
 import Register from '../views/Register.vue'
 import Profile from '../views/Profile.vue'
+import ProfileEdit from '../views/ProfileEdit.vue'
 import Schedule from '../views/Schedule.vue'
 import ContactBook from '../views/ContactBook.vue'
+import ViewContact from '../views/ViewContact.vue'
 
 Vue.use(VueRouter)
 
@@ -43,6 +45,11 @@ const routes = [
     component: Profile
   },
   {
+    path: '/profile/edit',
+    name: 'ProfileEdit',
+    component: ProfileEdit
+  },
+  {
     path: '/schedule',
     name: 'Schedule',
     component: Schedule
@@ -51,6 +58,11 @@ const routes = [
     path: '/contact',
     name: 'ContactBook',
     component: ContactBook
+  },
+  {
+    path: '/contact/:id',
+    name: 'Contact',
+    component: ViewContact
   },
   {
     path: '/about',

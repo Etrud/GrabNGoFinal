@@ -5,25 +5,25 @@
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
     <v-app>
       <div id="nav" class="d-flex">
-      <v-app-bar dense fixed >
+      <v-app-bar fixed >
         <v-toolbar-title style="cursor: pointer" @click="$router.push('/')">Grab N Go Scheduler</v-toolbar-title>
         <v-app-bar-nav-icon @click="drawer = true" v-if="$store.state.isUserLoggedIn"></v-app-bar-nav-icon>
 
         <v-spacer></v-spacer>
 
-        <v-card flat class="d-flex justify-end"
+        <v-card flat class="mx-auto"
            v-if="!$store.state.isUserLoggedIn">
-          <router-link to="/Login">Login / Register</router-link>
-          <v-icon>mdi-login</v-icon>
+          <v-btn color="grey"  to="/login">Login / Signup<v-icon>mdi-login</v-icon></v-btn>
         </v-card>
+
+        <v-card flat class="d-flex justify-end mr-6" pr-2
+          v-if="$store.state.isUserLoggedIn">
+          Logged in as: {{email}}
+        </v-card>
+        
         <v-card flat class="d-flex justify-end"
           v-if="$store.state.isUserLoggedIn">
-          {{email}}
-        </v-card>
-        <v-card flat class="d-flex justify-end"
-          v-if="$store.state.isUserLoggedIn">
-          <v-btn  @click="logout">Logout</v-btn>
-          <v-icon>mdi-login</v-icon>
+          <v-btn color="grey"   @click="logout" ml-2>Logout<v-icon>mdi-login</v-icon></v-btn>
         </v-card>
       </v-app-bar>
          <v-navigation-drawer
@@ -86,8 +86,9 @@
       </v-list>
     </v-navigation-drawer>
     </div>
-    
+    <div mt-5>
     <router-view/>
+    </div>
     </v-app>
   </div>
 </template>
