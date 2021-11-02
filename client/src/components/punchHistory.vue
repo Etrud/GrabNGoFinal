@@ -29,14 +29,13 @@ export default {
             value: 'employeeID',
           },
           { text: 'Punch Time', value: 'punchTime' },
-          { text: 'Punch Message', value: 'punchMessage' },
+          { text: 'Punch In Message', value: 'punchMessage' },
         ]
       }
   },
   async mounted() {
-    console.lo
-    const employeeID = this.$store.state.user.id;
-    this.punches = (await punchservice.show(employeeID)).data
-  }
-}
+    //do a request to a backend for all users
+    this.punches = (await punchservice.index()).data;
+  },
+};
 </script>

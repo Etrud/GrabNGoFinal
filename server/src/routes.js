@@ -22,7 +22,4 @@ module.exports = (app) => {
 
   app.get('/punch/all',
     punchcontroller.index)
-
-  app.get('/punch/your-punches',
-    punchcontroller.show)
 }

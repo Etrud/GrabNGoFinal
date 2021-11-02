@@ -6,8 +6,5 @@ export default {
     },
     index() {
         return api().get('punch/all')
-    },
-    show(credentials) {
-        return api().get('punch/your-punches', credentials)
-    },
+    }
 }

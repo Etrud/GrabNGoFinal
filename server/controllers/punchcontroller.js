@@ -25,20 +25,4 @@ module.exports = {
 
     }
   },
-  async show(req, res) {
-    try {
-      const {employeeID} = req.body
-      const punches = await Punch.findAll({
-        where: {
-          employeeID: employeeID
-        } 
-      })
-      res.send(punches)
-    } catch (err) {
-      res.status(500).send({
-        error: 'An error occured grabbing punches for user'
-      })
-
-    }
-  },
 }
