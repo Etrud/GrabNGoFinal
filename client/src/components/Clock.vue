@@ -1,6 +1,9 @@
 <template>
   <div class="app">
-    <VueClock />
+    <v-col>
+    <VueClock /><br>
+    {{new Date().toDateString()}}
+    </v-col>
   </div>
 </template>
 
