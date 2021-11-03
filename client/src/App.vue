@@ -5,7 +5,7 @@
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
     <v-app>
       <div id="nav" class="d-flex">
-      <v-app-bar fixed color="primary" >
+      <v-app-bar fixed color="primary" class="white--text" >
         <v-toolbar-title style="cursor: pointer" @click="$router.push('/')">Grab N Go Scheduler</v-toolbar-title>
         <v-app-bar-nav-icon @click="drawer = true" v-if="$store.state.isUserLoggedIn"></v-app-bar-nav-icon>
 
@@ -13,17 +13,17 @@
 
         <v-card flat class="mx-auto"
            v-if="!$store.state.isUserLoggedIn">
-          <v-btn color="grey"  to="/login">Login / Signup<v-icon>mdi-login</v-icon></v-btn>
+          <v-btn color="accent" class="white--text"   to="/login"  ml-2>Login / Signup<v-icon>mdi-login</v-icon></v-btn>
         </v-card>
 
-        <v-card flat class="d-flex justify-end mr-6" pr-2
+        <v-card flat rounded class="d-flex justify-end mr-6 pa-2 " pr-2
           v-if="$store.state.isUserLoggedIn">
-          Logged in as: {{email}}
+          Logged in as:&nbsp;<router-link to="/profile">{{email}}</router-link>
         </v-card>
         
         <v-card flat class="d-flex justify-end"
           v-if="$store.state.isUserLoggedIn">
-          <v-btn color="grey"   @click="logout" ml-2>Logout<v-icon>mdi-login</v-icon></v-btn>
+          <v-btn color="accent"   @click="logout" ml-2>Logout<v-icon>mdi-login</v-icon></v-btn>
         </v-card>
       </v-app-bar>
          <v-navigation-drawer
@@ -139,10 +139,11 @@
 
 #nav a {
   font-weight: bold;
+   text-decoration: none;
   color: #2c3e50;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #80bae9;
 }
 </style>
