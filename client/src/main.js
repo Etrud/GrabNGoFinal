@@ -6,6 +6,8 @@ import VueClock from '@dangvanthanh/vue-clock'
 import VueHtmlToPaper from "vue-html-to-paper";
 import { sync } from 'vuex-router-sync'
 import 'vuetify/dist/vuetify.min.css' 
+
+import colors from 'vuetify/lib/util/colors'
 import store from '@/store/store'
 
 Vue.config.productionTip = false
@@ -26,13 +28,13 @@ const vuetify = new Vuetify({
   theme: {
     themes: {
       light: {
-        primary: '#2196f3',
+        primary: colors.purple,
         secondary: colors.grey.darken1,
         accent: colors.shades.black,
         error: colors.red.accent3,
       },
       dark: {
-        primary: colors.blue.lighten3,
+        
       },
   },
 }}
