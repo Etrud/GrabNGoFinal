@@ -11,6 +11,9 @@ module.exports = (app) => {
   app.post('/login',
     authcontroller.login)
 
+  app.post('/updateprofile',
+    authcontroller.updateUser)
+
   app.get('/users',
     ContactController.index)
 

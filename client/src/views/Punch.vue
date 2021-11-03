@@ -38,13 +38,15 @@
           <v-toolbar flat dense color="#303F9F" dark>
             <v-toolbar-title>Your Punch History</v-toolbar-title>
           </v-toolbar>
-          <v-container class="mt-5 pb-10">
+          <v-container class="mt-5 pb-10" id="printMe">
+      
             <v-row justify="center">
               <v-col>
                 <punchHistory/>
               </v-col>
             </v-row>
           </v-container>
+          <v-btn class="mb-3" @click="print">Print</v-btn>
         </div>
       </v-card>
 
@@ -54,13 +56,14 @@
           <v-toolbar flat dense color="#303F9F" dark>
             <v-toolbar-title>All Punches</v-toolbar-title>
           </v-toolbar>
-          <v-container class="mt-5 pb-10">
+          <v-container class="mt-5 pb-10" id="printMe2">
             <v-row justify="center">
               <v-col>
                 <punchAll/>
               </v-col>
             </v-row>
           </v-container>
+          <v-btn class="mb-3" @click="print2">Print</v-btn>
         </div>
       </v-card>
     </v-flex>
@@ -80,6 +83,7 @@ export default {
       employeeID: '',
       punchTime: '',
       punchMessage:'',
+      output: null
     }
   },
  
@@ -88,6 +92,15 @@ export default {
 
   },
   methods: {
+    async print () {
+      // Pass the element id here
+      await this.$htmlToPaper('printMe');
+    },
+    async print2 () {
+      // Pass the element id here
+      await this.$htmlToPaper('printMe2');
+    }
+  ,
     async clockIn(){
       var currentDate = new Date()
       try {
@@ -108,6 +121,6 @@ export default {
         alert('Clocked out')
       }
     },
-  },
-};
+  }
+}
 </script>

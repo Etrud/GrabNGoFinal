@@ -18,11 +18,14 @@
                   src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
                   class="mx-auto"
                 ></v-img>
+                <v-card height="300"
+                  width="300">
                 <p><br>Employee ID: {{ getID }}</p>
                 <p>Name: {{ fullName }}</p>
                 <p>Email: {{ getEmail }}</p>
                 <p>Phone #: {{ getPhone }}</p>
                 <p>Address: {{ getAddress }}</p>
+                </v-card> 
               </v-col>
             </v-row>
           </v-container>
