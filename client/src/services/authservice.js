@@ -8,7 +8,7 @@ export default {
         return api().post('login', credentials)
     },
     update (credentials) {
-        return api().post('profileupdate', credentials)
+        return api().post('updateprofile', credentials)
     }
 }
 
