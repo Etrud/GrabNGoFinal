@@ -9,9 +9,9 @@
             >
             <v-spacer></v-spacer>
           </v-toolbar>
-          <v-container mt-5>
+          <v-container fill-height fluid>
             <v-row justify="center">
-              <v-col>
+              <v-col justify="center">
                 <v-img
                   max-height="150"
                   max-width="150"
@@ -26,6 +26,21 @@
                   <p>Address: {{ user.address }}</p>
                   <v-btn @click="emailTo" class="mb-5">Email Me</v-btn></v-card
                 >
+              </v-col>
+            </v-row>
+          </v-container>
+        </div>
+      </v-card>
+      <v-card elevation="6" class="mt-3">
+        <div class>
+          <v-toolbar flat dense color="#303F9F" dark>
+            Admin Controls
+          </v-toolbar>
+          <v-container mt-5>
+            <v-row justify="center">
+              <v-col>
+                <v-btn>Edit User</v-btn>
+                <v-btn>Delete User</v-btn>
               </v-col>
             </v-row>
           </v-container>

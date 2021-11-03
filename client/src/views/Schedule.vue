@@ -31,6 +31,22 @@
           </v-container>
         </div>
       </v-card>
+      <v-card elevation="6" class="mt-3">
+        <div class>
+          <v-toolbar flat dense color="#303F9F" dark>
+            <v-toolbar-title>Admin Settings</v-toolbar-title>
+          </v-toolbar>
+          <v-container mt-5>
+            <v-row justify="center">
+              <v-col>
+                <v-btn>Add Event</v-btn>
+                <v-btn>Edit Event</v-btn>
+                <v-btn>Remove Event</v-btn>
+              </v-col>
+            </v-row>
+          </v-container>
+        </div>
+      </v-card>
     </v-flex>
   </v-container>
 </template>

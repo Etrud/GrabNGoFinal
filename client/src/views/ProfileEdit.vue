@@ -19,7 +19,7 @@
                   src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
                   class="mx-auto"
                 ></v-img>
-                <p><br />Employee ID: {{ getID }}</p>
+                <p><br />Employee ID: {{ id }}</p>
                 <p>
                   <v-text-field
                     label="First Name"
@@ -39,6 +39,7 @@
                     label="Email"
                     v-model="email"
                     outlined
+                    disabled
                   ></v-text-field>
                 </p>
                 <p>
@@ -65,46 +66,42 @@
 </template>
 
 <script>
-
-import authservice from '../services/authservice'
+import authservice from "../services/authservice";
 
 export default {
-
-   data () {
+  data() {
     return {
+      id: this.$store.state.user.id,
       firstname: this.$store.state.user.firstname,
       lastname: this.$store.state.user.lastname,
       email: this.$store.state.user.email,
       phone: this.$store.state.user.phonenum,
-      address: this.$store.state.user.address
-    }
-  }, 
-    methods: {
+      address: this.$store.state.user.address,
+    };
+  },
+  methods: {
     async update() {
       try {
         const response = await authservice.update({
+          id: this.id,
           firstname: this.firstname,
           lastname: this.lastname,
           email: this.email,
           phone: this.phonenum,
-          address: this.address
-      })
+          address: this.address,
+        })
         this.$store.dispatch('setUser', response.data.user)
-      } catch (error) {
-        this.error = error.response.data.error
+      } catch (err) {
+        console.log(err)
       }
-      }   
     },
-  components: {},
-  computed: {
-    getID: function () {
-      var id = JSON.stringify(this.$store.state.user.id);
-      return id.replace(/['"]+/g, "");
+    
     },
-    getPhone: function () {
-      var phone = JSON.stringify(this.$store.state.user.phonenum);
-      return phone.replace(/["'](\d{3})(\d{3})(\d{4})["']/, "($1) $2-$3");
-    },
+    computed: {
+      getPhone: function () {
+        var phone = JSON.stringify(this.$store.state.user.phonenum);
+        return phone.replace(/["'](\d{3})(\d{3})(\d{4})["']/, "($1) $2-$3");
+      },
   },
 };
 </script>
