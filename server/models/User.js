@@ -54,6 +54,7 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = function (models) {
     User.hasMany(models.Punch, { foreignKey: 'employeeID' })
+    User.hasMany(models.Schedule, { foreignKey: 'employeeID' })
   }
 
   return User
