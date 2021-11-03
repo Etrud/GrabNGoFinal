@@ -5,7 +5,7 @@
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
     <v-app>
       <div id="nav" class="d-flex">
-      <v-app-bar fixed >
+      <v-app-bar fixed color="primary" >
         <v-toolbar-title style="cursor: pointer" @click="$router.push('/')">Grab N Go Scheduler</v-toolbar-title>
         <v-app-bar-nav-icon @click="drawer = true" v-if="$store.state.isUserLoggedIn"></v-app-bar-nav-icon>
 
