@@ -2,7 +2,7 @@
   <div class="app">
     <v-col>
     <VueClock /><br>
-    {{ new Date().toDateString() }}
+    {{new Date().toDateString()}}
     </v-col>
   </div>
 </template>
