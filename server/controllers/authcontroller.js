@@ -69,8 +69,6 @@ module.exports = {
           id: id
         }
       })
-
-
       await user.update(req.body)
       res.send(user)
 

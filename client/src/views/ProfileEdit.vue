@@ -45,7 +45,7 @@
                 <p>
                   <v-text-field
                     label="Phone #"
-                    v-model="getPhone"
+                    v-model="phonenum"
                     outlined
                   ></v-text-field>
                 </p>
@@ -75,22 +75,27 @@ export default {
       firstname: this.$store.state.user.firstname,
       lastname: this.$store.state.user.lastname,
       email: this.$store.state.user.email,
-      phone: this.$store.state.user.phonenum,
+      phonenum: this.$store.state.user.phonenum,
       address: this.$store.state.user.address,
     };
   },
   methods: {
     async update() {
       try {
-        const response = await authservice.update({
+         await authservice.update({
           id: this.id,
           firstname: this.firstname,
           lastname: this.lastname,
           email: this.email,
-          phone: this.phonenum,
+          phonenum: this.phonenum,
           address: this.address,
         })
-        this.$store.dispatch('setUser', response.data.user)
+        this.$store.dispatch('setToken', null)
+        this.$store.dispatch('setUser', null)
+        this.$router.push({
+          name: 'Launch'
+        })
+        
       } catch (err) {
         console.log(err)
       }
