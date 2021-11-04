@@ -6,12 +6,24 @@
       :items="punches"
       :items-per-page="5"
       class="elevation-1"
-    ></v-data-table>
+    >
+    <template  v-slot:[`item.punchMessage`]="{ item }">
+      <v-chip
+        :color="getColor(item.punchMessage)"
+        dark
+      >
+        {{ item.punchMessage }}
+      </v-chip>
+    </template>
+    
+    
+    </v-data-table>
   </div>
 </template>
 
 <script>
-import punchservice from "@/services/punchservice";
+import punchservice from "@/services/punchservice"
+import moment from "moment"
 
 export default {
   data() {
@@ -30,10 +42,25 @@ export default {
         ]
       }
   },
+   methods: {
+      getColor (punchMessage) {
+        if (punchMessage == true) return 'green'
+        else if (punchMessage == false) return 'red'
+        else return 'green'
+      },
+    },
   async mounted() {
     //do a request to a backend for all users
     const userId = this.$store.state.user.id;
-    this.punches = (await punchservice.show(userId)).data;
+    const preChanged = (await punchservice.show(userId)).data
+        for(var i in preChanged)
+        {
+          console.log( preChanged[i].punchTime )
+          preChanged[i].punchTime = moment.utc(preChanged[i].punchTime).format('YYYY-MM-DD HH:mm:ss a')
+          console.log( preChanged[i].punchTime )
+        }
+        
+        this.punches = preChanged
   },
 };
 </script>

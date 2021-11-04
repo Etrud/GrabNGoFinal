@@ -21,12 +21,22 @@
         mdi-delete
       </v-icon>
     </template>
+
+    <template  v-slot:[`item.punchMessage`]="{ item }">
+      <v-chip
+        :color="getColor(item.punchMessage)"
+        dark
+      >
+        {{ item.punchMessage }}
+      </v-chip>
+    </template>
     </v-data-table>
   </div>
 </template>
 
 <script>
 import punchservice from "@/services/punchservice";
+import moment from "moment"
 
 export default {
   data() {
@@ -57,9 +67,25 @@ export default {
         ]
       }
   },
+  methods: {
+      getColor (punchMessage) {
+        if (punchMessage == true) return 'green'
+        else if (punchMessage == false) return 'red'
+        else return 'green'
+      },
+    },
   async mounted() {
-    //do a request to a backend for all users
-    this.punches = (await punchservice.index()).data;
+
+
+    const preChanged = (await punchservice.index()).data
+        for(var i in preChanged)
+        {
+          console.log( preChanged[i].punchTime )
+          preChanged[i].punchTime = moment.utc(preChanged[i].punchTime).format('YYYY-MM-DD HH:mm:ss a')
+          console.log( preChanged[i].punchTime )
+        }
+        
+        this.punches = preChanged
   },
 };
 </script>

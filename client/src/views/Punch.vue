@@ -103,6 +103,17 @@ export default {
   ,
     async clockIn(){
       var currentDate = new Date()
+
+
+      
+      if (this.$store.state.clockIn == false) {
+        this.$store.dispatch("setClockin", true);
+        console.log(this.punchTime);
+        alert('Clocked in')
+      } else {
+        this.$store.dispatch("setClockin", false);
+        alert('Clocked out')
+      }
       try {
         await punchservice.registerPunch({
           employeeID: this.$store.state.user.id,
@@ -112,14 +123,6 @@ export default {
       } catch (error) {
         this.error = error.response.data.error;
     }
-      if (this.$store.state.clockIn == false) {
-        this.$store.dispatch("setClockin", true);
-        console.log(this.punchTime);
-        alert('Clocked in')
-      } else {
-        this.$store.dispatch("setClockin", false);
-        alert('Clocked out')
-      }
     },
   }
 }
