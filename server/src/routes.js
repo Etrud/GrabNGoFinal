@@ -2,8 +2,10 @@ const authcontroller = require('../controllers/authcontroller')
 const authcontrollerpolicy = require('../policies/authcontrollerpolicy')
 const ContactController = require('../controllers/contactcontroller')
 const punchcontroller = require('../controllers/punchcontroller')
+const schedulecontroller = require('../controllers/schedulecontroller')
 
 module.exports = (app) => {
+  // auth routes
   app.post('/register',
     authcontrollerpolicy.register,
     authcontroller.register)
@@ -11,6 +13,17 @@ module.exports = (app) => {
   app.post('/login',
     authcontroller.login)
 
+  // schedule routes
+  app.post('/schedule',
+    schedulecontroller.registerSchedule)
+
+  app.get('/schedule/all',
+    schedulecontroller.index)
+
+  app.get('/schedule/:userId',
+    schedulecontroller.show)
+
+  // user routes
   app.post('/updateprofile',
     authcontroller.updateUser)
 
@@ -20,6 +33,7 @@ module.exports = (app) => {
   app.get('/users/:userId',
     ContactController.show)
 
+  // punch Routes
   app.post('/punch',
     punchcontroller.registerPunch)
 
