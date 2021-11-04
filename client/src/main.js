@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import Vuetify from 'vuetify'
 import VueClock from '@dangvanthanh/vue-clock'
+import DatetimePicker from 'vuetify-datetime-picker'
 import VueHtmlToPaper from "vue-html-to-paper";
 import { sync } from 'vuex-router-sync'
 import 'vuetify/dist/vuetify.min.css' 
@@ -23,6 +24,7 @@ const options = {
 Vue.use(VueHtmlToPaper, options);
 Vue.use(Vuetify)
 Vue.use(VueClock)
+Vue.use(DatetimePicker)
 
 const vuetify = new Vuetify({
   theme: {

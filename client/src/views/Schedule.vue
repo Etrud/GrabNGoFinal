@@ -39,9 +39,7 @@
           <v-container mt-5>
             <v-row justify="center">
               <v-col>
-                <v-btn>Add Event</v-btn>
-                <v-btn>Edit Event</v-btn>
-                <v-btn>Remove Event</v-btn>
+                <addEvent/>
               </v-col>
             </v-row>
           </v-container>
@@ -54,8 +52,9 @@
 
 <script>
 import Calendar from "@/components/Calendar.vue";
+import addEvent from "@/components/addEvent.vue";
 
 export default {
-  components: { Calendar },
+  components: { Calendar, addEvent },
 }
 </script>
