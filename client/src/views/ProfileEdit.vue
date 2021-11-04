@@ -59,6 +59,7 @@
               </v-col>
             </v-row>
           </v-container>
+          <div class="error" v-html="error" />
         </div>
       </v-card>
     </v-flex>
@@ -96,8 +97,8 @@ export default {
           name: 'Launch'
         })
         
-      } catch (err) {
-        console.log(err)
+      } catch (error) {
+        this.error = error.response.data.error
       }
     },
     
