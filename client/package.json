@@ -11,6 +11,7 @@
     "@dangvanthanh/vue-clock": "^0.2.3",
     "axios": "^0.23.0",
     "core-js": "^3.6.5",
+    "moment": "^2.29.1",
     "vue": "^2.6.11",
     "vue-html-to-paper": "^1.4.4",
     "vue-router": "^3.5.2",
