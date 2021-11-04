@@ -1,3 +1,6 @@
+// Brandon Shaffer
+// Configuration for DB
+
 module.exports = {
   port: 8081,
   db: {
@@ -9,6 +12,7 @@ module.exports = {
       host: process.env.HOST || '185.28.21.204'
     }
   },
+  // secret token
   authentication: {
     jwtSecret: process.env.JWT_SECRET || 'secret'
   }

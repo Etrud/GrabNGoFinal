@@ -1,11 +1,16 @@
-const {User, Punch} = require('../models')
+//Brandon Shaffer
+
+//Controls ContactBook API methods
+
+//constants
+const {User} = require('../models')
 
 
 module.exports = {
+  //show all users
    async index (req, res) {
       try {
         const users = await User.findAll({
-           //include: Punch
         })
         res.send(users)
     }catch (err) {
@@ -15,6 +20,7 @@ module.exports = {
 
     }
   },
+  //show user by empID
   async show (req, res) {
     try {
       const user = await User.findByPk(req.params.userId)

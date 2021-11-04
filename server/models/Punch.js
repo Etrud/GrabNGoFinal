@@ -1,3 +1,7 @@
+//Define Punch Table
+//11.3.21
+//Brandon Shaffer
+
 module.exports = (sequelize, DataTypes) => {
   const Punch = sequelize.define('Punch',{
     id: {
@@ -16,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       },
   })
 
-
+  //Associations
   Punch.associate = function (models){
     Punch.belongsTo(models.User, {foreignKey: 'employeeID'})
   }

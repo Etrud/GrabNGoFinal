@@ -1,17 +1,21 @@
 <template>
   <v-container fill-height fluid flex-column text-xs-center>
-
-     <v-card color="secondary" dark max-width="700">
-      <v-card-title class="text-h5 justify-center" > {{msg}} </v-card-title>
-      <img alt="Vue logo" src="../assets/logo.png">
-      <v-card-subtitle >
-        An web application for the employees and management of Grab N Go Smoke Shop. This application entails schedule and time management tools and trackers for our team!<br><br> Please continue to the login screen to continue using our application, Thank you!
-        </v-card-subtitle>
+    <v-card color="secondary" dark max-width="700">
+      <v-card-title class="text-h5 justify-center"> {{ msg }} </v-card-title>
+      <img alt="Vue logo" src="../assets/logo.png" />
+      <v-card-subtitle>
+        An web application for the employees and management of Grab N Go Smoke
+        Shop. This application entails schedule and time management tools and
+        trackers for our team!<br /><br />
+        Please continue to the login screen to continue using our application,
+        Thank you!
+      </v-card-subtitle>
     </v-card>
 
-
     <v-card color="secondary" dark max-width="374" class="mt-5">
-      <v-card-title class="text-h5 justify-center"> Hours of Operations </v-card-title>
+      <v-card-title class="text-h5 justify-center">
+        Hours of Operations
+      </v-card-title>
 
       <v-card-subtitle
         >Mon: 11:00 AM – 11:00 PM<br />

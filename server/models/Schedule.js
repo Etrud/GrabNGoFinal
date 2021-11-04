@@ -1,3 +1,7 @@
+//Define Schedule Table
+//11.3.21
+//Brandon Shaffer
+
 module.exports = (sequelize, DataTypes) => {
   const Schedule = sequelize.define('Schedule', {
     id: {
@@ -22,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   })
 
+  //Associations
   Schedule.associate = function (models) {
     Schedule.belongsTo(models.User, { foreignKey: 'employeeID' })
   }

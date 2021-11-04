@@ -1,3 +1,8 @@
+//Brandon Shaffer
+
+//Controls register validation rules
+
+//constants
 const Joi = require('joi')
 
 module.exports = {

@@ -1,4 +1,10 @@
 <template>
+<!-- 
+Clock Component
+
+Brandon Shaffer
+ -->
+
   <div class="app">
     <v-col>
     <VueClock /><br>
@@ -11,7 +17,6 @@
 import VueClock from '@dangvanthanh/vue-clock'
 
 export default {
-  components: { VueClock },
-  
+  components: { VueClock }
 }
 </script>

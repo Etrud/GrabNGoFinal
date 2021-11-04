@@ -1,6 +1,11 @@
+//Define User Table
+//11.3.21
+//Brandon Shaffer
+
 const Promise = require('bluebird')
 const bcrypt = Promise.promisifyAll(require('bcrypt-nodejs'))
 
+//hash password by salt
 function hashPassword(user, options) {
   const SALT_FACTOR = 8
 
@@ -52,6 +57,7 @@ module.exports = (sequelize, DataTypes) => {
     return bcrypt.compareAsync(password, this.password)
   }
 
+  //Associations
   User.associate = function (models) {
     User.hasMany(models.Punch, { foreignKey: 'employeeID' })
     User.hasMany(models.Schedule, { foreignKey: 'employeeID' })

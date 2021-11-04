@@ -1,7 +1,13 @@
+//Brandon Shaffer
+
+//Controls ContactBook API methods
+
+//constants
 const { User } = require('../models')
 const jwt = require('jsonwebtoken')
 const config = require('../src/config/config')
 
+//assign JWT for one week
 function jwtSignUser(user) {
   const ONE_WEEK = 60 * 60 * 24 * 7
   return jwt.sign(user, config.authentication.jwtSecret, {
@@ -10,6 +16,7 @@ function jwtSignUser(user) {
 }
 
 module.exports = {
+  //add user
   async register(req, res) {
     try {
       const user = await User.create(req.body)
@@ -20,6 +27,7 @@ module.exports = {
       })
     }
   },
+  //login user and assign token
   async login(req, res) {
     try {
       const { email, password } = req.body
@@ -52,23 +60,24 @@ module.exports = {
       })
     }
   },
-    async updateUser (req, res) {
-      try {
-        const {id} = req.body
-        const user = await User.findOne({
-          where: {
-            id: id
-          }
-        })
+  //update user (not working)
+  async updateUser(req, res) {
+    try {
+      const { id } = req.body
+      const user = await User.findOne({
+        where: {
+          id: id
+        }
+      })
 
-        
-        await user.update(req.body)
-        res.send(user)
 
-      } catch(err){
-        res.status(500).send({
-          error:'Error has occured during updating of user'
-        })
-      }
+      await user.update(req.body)
+      res.send(user)
+
+    } catch (err) {
+      res.status(500).send({
+        error: 'Error has occured during updating of user'
+      })
+    }
   },
 }

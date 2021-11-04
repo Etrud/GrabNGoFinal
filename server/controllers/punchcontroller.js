@@ -1,6 +1,12 @@
+//Brandon Shaffer
+
+//Controls Punch API methods
+
+//constants
 const { Punch, User } = require('../models')
 
 module.exports = {
+  //add punch
   async registerPunch(req, res) {
     try {
       const punch = await Punch.create(req.body)
@@ -11,6 +17,7 @@ module.exports = {
       })
     }
   },
+  //show all punches
   async index(req, res) {
     try {
       const punchs = await Punch.findAll({
@@ -28,6 +35,7 @@ module.exports = {
 
     }
   },
+  //show punch by id by empID
   async show (req, res) {
     try {
       const punches = await Punch.findAll({

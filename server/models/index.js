@@ -4,6 +4,8 @@ const Sequelize = require('sequelize')
 const config = require('../src/config/config')
 const db = {}
 
+
+//establish database connection
 const sequelize = new Sequelize(
     config.db.database,
     config.db.user,
@@ -11,6 +13,7 @@ const sequelize = new Sequelize(
     config.db.options
 )
 
+//creates model for each file in models folder
 fs
   .readdirSync(__dirname)
   .filter((file) =>
@@ -21,6 +24,7 @@ fs
        db[model.name] = model
    })
 
+//Assigns assocations in model page
   Object.keys(db).forEach(function (modelName) {
     if ('associate' in db[modelName]) {
       db[modelName].associate(db)
