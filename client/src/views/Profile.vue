@@ -1,14 +1,14 @@
 <template>
   <v-container fill-height fluid flex-column min>
     <v-flex class="pa-5">
-      <v-card elevation="6" >
+      <v-card elevation="6" class="mx-auto my-12" width="700">
         <div class>
           <v-toolbar flat dense color="#303F9F" dark>
             <v-toolbar-title>Your Profile Page</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn to="/profile/edit">Edit</v-btn>
           </v-toolbar>
-          <v-container>
+          <v-container fill-height fluid flex-column >
             <v-row justify="center">
               <v-col justify="center">
                 <v-img
@@ -17,8 +17,8 @@
                   src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
                   class="mx-auto"
                 ></v-img>
-                
-                <v-card height="300" width="300" justify="center" class="mt-2">
+
+                <v-card height="300" width="300" justify="center" class="mt-2" elevation="0">
                   <p><br />Employee ID: {{ getID }}</p>
                   <p>Name: {{ fullName }}</p>
                   <p>Email: {{ getEmail }}</p>
