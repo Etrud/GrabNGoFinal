@@ -23,6 +23,9 @@ module.exports = (app) => {
   app.get('/schedule/:userId',
     schedulecontroller.show)
 
+  app.post('/schedule/delete/:scheduleId',
+    schedulecontroller.deleteSchedule)
+
   // user routes
   app.post('/updateprofile',
     authcontroller.updateUser)
@@ -45,4 +48,7 @@ module.exports = (app) => {
 
   app.get('/punch/:userId',
     punchcontroller.show)
+
+  app.post('/punch/delete/:punchId',
+    punchcontroller.deletePunch)
 }

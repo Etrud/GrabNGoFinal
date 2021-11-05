@@ -36,19 +36,35 @@ module.exports = {
     }
   },
   //show punch by id by empID
-  async show (req, res) {
+  async show(req, res) {
     try {
       const punches = await Punch.findAll({
         where: {
           employeeID: req.params.userId
         }
-        })
+      })
       res.send(punches)
-  }catch (err) {
-    res.status(500).send({
-      error: 'An error occured grabbing users'
-    })
+    } catch (err) {
+      res.status(500).send({
+        error: 'An error occured grabbing users'
+      })
 
-  }
-},
+    }
+  },
+  async deletePunch(req, res) {
+    try {
+      const punch = await Punch.findByPk(req.params.punchId).catch(e => {
+        console.log(e.message)
+     })
+     console.log(punch)
+      await punch.destroy()
+      res.send(null)
+
+    } catch (err) {
+      res.status(500).send({
+        error: 'Error has occured during deletion of punch'
+      })
+    }
+  
+  },
 }

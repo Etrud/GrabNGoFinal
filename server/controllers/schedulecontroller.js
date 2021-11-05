@@ -52,4 +52,20 @@ module.exports = {
 
   }
 },
+async deleteSchedule(req, res) {
+  try {
+    const schedule = await Schedule.findByPk(req.params.scheduleId).catch(e => {
+      console.log(e.message)
+   })
+   console.log(schedule)
+    await schedule.destroy()
+    res.send(null)
+
+  } catch (err) {
+    res.status(500).send({
+      error: 'Error has occured during deletion of schedule'
+    })
+  }
+
+},
 }
