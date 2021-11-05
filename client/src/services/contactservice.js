@@ -6,5 +6,9 @@ export default {
     },
     show(userId) {
         return api().get(`users/${userId}`)
+    },
+    deleteUser(userId) {
+        return api().post(`users/delete/${userId}`)
     }
+
 }
