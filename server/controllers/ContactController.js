@@ -32,5 +32,21 @@ module.exports = {
 
   }
 },
+  //delete user by id
+  async deleteUser(req, res) {
+    try {
+      const user = await User.findByPk(req.params.userId).catch(e => {
+        console.log(e.message)
+     })
+     console.log(user)
+      await user.destroy()
+      res.send(null)
+
+    } catch (err) {
+      res.status(500).send({
+        error: 'Error has occured during deletion of user'
+      })
+    }
+  },
 
 }

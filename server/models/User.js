@@ -59,8 +59,14 @@ module.exports = (sequelize, DataTypes) => {
 
   //Associations
   User.associate = function (models) {
-    User.hasMany(models.Punch, { foreignKey: 'employeeID' })
-    User.hasMany(models.Schedule, { foreignKey: 'employeeID' })
+    User.hasMany(models.Punch, {
+      foreignKey: 'employeeID', onDelete: 'cascade',
+      hooks: true,
+    })
+    User.hasMany(models.Schedule, {
+      foreignKey: 'employeeID', onDelete: 'cascade',
+      hooks: true,
+    })
   }
 
   return User

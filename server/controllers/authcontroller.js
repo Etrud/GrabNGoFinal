@@ -60,7 +60,7 @@ module.exports = {
       })
     }
   },
-  //update user (not working)
+  //update user 
   async updateUser(req, res) {
     try {
       const { id } = req.body

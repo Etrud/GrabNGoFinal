@@ -33,6 +33,9 @@ module.exports = (app) => {
   app.get('/users/:userId',
     ContactController.show)
 
+  app.post('/users/delete/:userId',
+    ContactController.deleteUser)
+
   // punch Routes
   app.post('/punch',
     punchcontroller.registerPunch)
