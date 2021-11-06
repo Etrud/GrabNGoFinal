@@ -39,7 +39,7 @@
           <v-container mt-5>
             <v-row justify="center">
               <v-col>
-                <v-btn>Edit User</v-btn>
+                <editUser/>
                 <deleteUser/>
               </v-col>
             </v-row>
@@ -53,9 +53,10 @@
 <script>
 import contactservice from "@/services/contactservice";
 import deleteUser from "@/components/deleteUser"
+import editUser from "@/components/editUser"
 
 export default {
-  components:{deleteUser},
+  components:{deleteUser,editUser},
   data() {
     return {
       user: {},
