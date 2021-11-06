@@ -9,5 +9,8 @@ export default {
     },
     show(userId) {
         return api().get(`schedule/${userId}`)
+    },
+    deleteSchedule(scheduleId) {
+        return api().post(`schedule/delete/${scheduleId}`)
     }
 }

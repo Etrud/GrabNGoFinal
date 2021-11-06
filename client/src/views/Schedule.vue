@@ -40,6 +40,7 @@
             <v-row justify="center">
               <v-col>
                 <addEvent/>
+                <calendarTable/>
               </v-col>
             </v-row>
           </v-container>
@@ -53,8 +54,9 @@
 <script>
 import Calendar from "@/components/Calendar.vue";
 import addEvent from "@/components/addEvent.vue";
+import calendarTable from "@/components/calendarTable.vue";
 
 export default {
-  components: { Calendar, addEvent },
+  components: { Calendar, addEvent, calendarTable },
 }
 </script>
