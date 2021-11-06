@@ -55,9 +55,9 @@ export default {
     const preChanged = (await punchservice.show(userId)).data
         for(var i in preChanged)
         {
-          console.log( preChanged[i].punchTime )
-          preChanged[i].punchTime = moment.utc(preChanged[i].punchTime).format('YYYY-MM-DD HH:mm:ss a')
-          console.log( preChanged[i].punchTime )
+          //console.log( preChanged[i].punchTime )
+          preChanged[i].punchTime = moment(preChanged[i].punchTime).format('YYYY-MM-DD HH:mm:ss a')
+          //console.log( preChanged[i].punchTime )
         }
         
         this.punches = preChanged

@@ -9,5 +9,8 @@ export default {
     },
     show(userId) {
         return api().get(`punch/${userId}`)
+    },
+    deletePunch(punchId) {
+        return api().post(`punch/delete/${punchId}`)
     }
 }

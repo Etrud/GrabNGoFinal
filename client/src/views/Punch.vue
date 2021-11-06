@@ -103,12 +103,13 @@ export default {
   ,
     async clockIn(){
       var currentDate = new Date()
+      console.log(currentDate)
 
 
       
       if (this.$store.state.clockIn == false) {
         this.$store.dispatch("setClockin", true);
-        console.log(this.punchTime);
+        //console.log(this.punchTime);
         alert('Clocked in')
       } else {
         this.$store.dispatch("setClockin", false);
@@ -119,7 +120,8 @@ export default {
           employeeID: this.$store.state.user.id,
           punchTime: currentDate,
           punchMessage: this.$store.state.clockIn
-        });
+        })
+        this.$router.go()
       } catch (error) {
         this.error = error.response.data.error;
     }
