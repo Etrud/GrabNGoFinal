@@ -9,8 +9,8 @@
       class="elevation-1"
       ><template v-slot:[`item.actions`]="{ item }">
 
-        <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
 
+        <editEvent/>
         
         <v-dialog v-model="dialog" persistent max-width="290">
           <template v-slot:activator="{ on, attrs }">
@@ -46,9 +46,11 @@
 
 <script>
 import scheduleservice from "@/services/scheduleservice";
+import editEvent from "@/components/editEvent"
 import moment from "moment";
 
 export default {
+  components: {editEvent},
   data() {
     return {
       dialog: false,
