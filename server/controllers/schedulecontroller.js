@@ -36,36 +36,51 @@ module.exports = {
 
     }
   },
-  //show punch by id by empID
-  async show (req, res) {
+  //show schedules by id by empID
+  async show(req, res) {
     try {
-      const punches = await Schedule.findAll({
+      const schedules = await Schedule.findAll({
         where: {
           employeeID: req.params.userId
         }
-        })
-      res.send(punches)
-  }catch (err) {
-    res.status(500).send({
-      error: 'An error occured grabbing schedule'
-    })
+      })
+      res.send(schedules)
+    } catch (err) {
+      res.status(500).send({
+        error: 'An error occured grabbing schedule'
+      })
 
-  }
-},
-async deleteSchedule(req, res) {
-  try {
-    const schedule = await Schedule.findByPk(req.params.scheduleId).catch(e => {
-      console.log(e.message)
-   })
-   console.log(schedule)
-    await schedule.destroy()
-    res.send(null)
+    }
+  },
+  //delete schedule by pk
+  async deleteSchedule(req, res) {
+    try {
+      const schedule = await Schedule.findByPk(req.params.scheduleId).catch(e => {
+        console.log(e.message)
+      })
+      console.log(schedule)
+      await schedule.destroy()
+      res.send(null)
 
-  } catch (err) {
-    res.status(500).send({
-      error: 'Error has occured during deletion of schedule'
-    })
-  }
+    } catch (err) {
+      res.status(500).send({
+        error: 'Error has occured during deletion of schedule'
+      })
+    }
 
-},
+  },
+  //edit schedule by pk
+  async editSchedule(req, res) {
+    try {
+      const schedule = await Schedule.findByPk(req.params.scheduleId)
+      await schedule.update(req.body)
+      res.send(schedule)
+
+    } catch (err) {
+      res.status(500).send({
+        error: 'Error has occured during editing of schedule'
+      })
+    }
+
+  },
 }

@@ -48,5 +48,19 @@ module.exports = {
       })
     }
   },
+  //edit user by pk
+  async editUser(req, res) {
+    try {
+      const user = await User.findByPk(req.params.userId)
+      await user.update(req.body)
+      res.send(user)
+
+    } catch (err) {
+      res.status(500).send({
+        error: 'Error has occured during editing of user'
+      })
+    }
+
+  },
 
 }

@@ -67,4 +67,18 @@ module.exports = {
     }
   
   },
+  //edit punch by pk
+  async editPunch(req, res) {
+    try {
+      const punch = await Punch.findByPk(req.params.punchId)
+      await punch.update(req.body)
+      res.send(punch)
+
+    } catch (err) {
+      res.status(500).send({
+        error: 'Error has occured during editing of punch'
+      })
+    }
+
+  },
 }
