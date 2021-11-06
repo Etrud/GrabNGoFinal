@@ -4,7 +4,7 @@
       <v-card-title class="text-h5 justify-center"> {{ msg }} </v-card-title>
       <img alt="Vue logo" src="../assets/logo.png" />
       <v-card-subtitle>
-        An web application for the employees and management of Grab N Go Smoke
+        A web application for the employees and management of Grab N Go Smoke
         Shop. This application entails schedule and time management tools and
         trackers for our team!<br /><br />
         Please continue to the login screen to continue using our application,
