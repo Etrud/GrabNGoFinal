@@ -102,7 +102,10 @@ export default {
     }
   ,
     async clockIn(){
-      var currentDate = new Date()
+      var date = new Date()
+      var currentDate =  Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(),
+ date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
+
       console.log(currentDate)
 
 

@@ -98,7 +98,7 @@ export default {
     for (var i in preChanged) {
       //console.log( preChanged[i].punchTime )
       preChanged[i].punchTime = moment(preChanged[i].punchTime).format(
-        "YYYY-MM-DD HH:mm:ss a"
+        "YYYY-MM-DD hh:mm:ss a"
       );
       //console.log( preChanged[i].punchTime )
     }
