@@ -2,7 +2,7 @@
   <v-container fill-height fluid flex-column text-xs-center>
     <v-card color="secondary" dark max-width="700">
       <v-card-title class="text-h5 justify-center"> {{ msg }} </v-card-title>
-      <img alt="Vue logo" src="../assets/logo.png" />
+      <img alt="Vue logo" src="../assets/logo.png"  width="500"/>
       <v-card-subtitle>
         A web application for the employees and management of Grab N Go Smoke
         Shop. This application entails schedule and time management tools and
