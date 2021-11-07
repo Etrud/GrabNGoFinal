@@ -3,11 +3,11 @@ import App from './App.vue'
 import router from './router'
 import Vuetify from 'vuetify'
 import VueClock from '@dangvanthanh/vue-clock'
-import DatetimePicker from 'vuetify-datetime-picker'
 import VueHtmlToPaper from "vue-html-to-paper";
 import { sync } from 'vuex-router-sync'
 import 'vuetify/dist/vuetify.min.css' 
-
+import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
+import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
 import colors from 'vuetify/lib/util/colors'
 import store from '@/store/store'
 
@@ -24,7 +24,8 @@ const options = {
 Vue.use(VueHtmlToPaper, options);
 Vue.use(Vuetify)
 Vue.use(VueClock)
-Vue.use(DatetimePicker)
+Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker);
+
 
 const vuetify = new Vuetify({
   theme: {
