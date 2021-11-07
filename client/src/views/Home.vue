@@ -26,7 +26,7 @@
             <v-toolbar-title>Your Profile Page</v-toolbar-title>
           </v-toolbar>
           <v-container mt-5>
-            
+            <yourCalendar/>
           </v-container>
         </div>
       </v-card>
@@ -43,10 +43,10 @@
 
 <script>
 import Clock from "@/components/Clock.vue";
-
+import yourCalendar from "@/components/yourCalendar.vue";
 
 export default {
-  components: { Clock },
+  components: { Clock, yourCalendar },
   computed: {
     fullName: function () {
       var first = JSON.stringify(this.$store.state.user.firstname);
