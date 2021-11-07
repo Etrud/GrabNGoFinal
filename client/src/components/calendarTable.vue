@@ -108,10 +108,10 @@ export default {
     const preChanged = (await scheduleservice.index()).data;
     for (var i in preChanged) {
       //console.log( preChanged[i].punchTime )
-      preChanged[i].start = moment(preChanged[i].punchTime).format(
+      preChanged[i].start = moment(preChanged[i].start).format(
         "YYYY-MM-DD HH:mm:ss a"
       )
-      preChanged[i].end = moment(preChanged[i].punchTime).format(
+      preChanged[i].end = moment(preChanged[i].end).format(
         "YYYY-MM-DD HH:mm:ss a"
       )
       //console.log( preChanged[i].punchTime )

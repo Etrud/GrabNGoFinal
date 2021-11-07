@@ -19,7 +19,7 @@
               </v-datetime-picker>
             </v-col>
             <v-col cols="12">
-              <v-datetime-picker label="End Date / Time*" v-model="datetime2">
+              <v-datetime-picker label="End Date / Time*" v-model="datetime">
               </v-datetime-picker>
             </v-col>
             <v-col cols="12" sm="6">
@@ -57,7 +57,8 @@ import contactservice from "@/services/contactservice";
   export default {
     data: () => ({
       dialog: false,
-      users: null
+      users: null,
+      datetime: ''
     }),
     async mounted() {
     //do a request to a backend for all users

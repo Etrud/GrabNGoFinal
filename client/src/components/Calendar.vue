@@ -92,10 +92,10 @@ import moment from 'moment';
         const preChanged = (await scheduleservice.index()).data
         for(var i in preChanged)
         {
-          console.log( preChanged[i].start )
-          preChanged[i].start = moment.utc(preChanged[i].start).format('YYYY-MM-DD HH:mm')
-          preChanged[i].end = moment.utc(preChanged[i].end).format('YYYY-MM-DD HH:mm')
-          console.log( preChanged[i].start )
+          //console.log( preChanged[i].start )
+          preChanged[i].start = moment(preChanged[i].start).format('YYYY-MM-DD HH:mm')
+          preChanged[i].end = moment(preChanged[i].end).format('YYYY-MM-DD HH:mm')
+          //console.log( preChanged[i].start )
         }
         
         this.events = preChanged
