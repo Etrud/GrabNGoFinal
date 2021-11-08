@@ -12,5 +12,8 @@ export default {
     },
     deleteSchedule(scheduleId) {
         return api().post(`schedule/delete/${scheduleId}`)
+    },
+    editSchedule(scheduleId, credentials) {
+        return api().post(`schedule/edit/${scheduleId}`,credentials)
     }
 }
