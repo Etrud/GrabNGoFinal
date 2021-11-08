@@ -15,17 +15,19 @@
             </v-col>
 
             <v-col cols="12">
-              <v-datetime-picker label="Start Date / Time*" v-model="datetime">
-              </v-datetime-picker>
+               <VueCtkDateTimePicker v-model="datetime" />
             </v-col>
             <v-col cols="12">
-              <v-datetime-picker label="End Date / Time*" v-model="datetime">
-              </v-datetime-picker>
+               <VueCtkDateTimePicker v-model="end" />
             </v-col>
             <v-col cols="12" sm="6">
               <v-select
                 :items="users"
+                
                 label="Employee Assigned*"
+                :item-text="item => 'ID: '+item.id+', '+item.firstname +' '+ item.lastname"
+                item-value="id"
+                v-model="employeeId"
                 required
               ></v-select>
             </v-col>
@@ -58,13 +60,14 @@ import contactservice from "@/services/contactservice";
     data: () => ({
       dialog: false,
       users: null,
-      datetime: ''
+      datetime: "",
+      end: "",
+      employeeId: ""
     }),
     async mounted() {
     //do a request to a backend for all users
     const fullUser = (await contactservice.index()).data
-    const updatedUser = fullUser.map(user => 'ID: '+user.id+', '+user.firstname+' '+user.lastname)
-    this.users = updatedUser
+    this.users = fullUser
 }
   }
   
