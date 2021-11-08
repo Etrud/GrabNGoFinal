@@ -2,7 +2,7 @@
   <v-container fluid fill-height>
     <v-layout align-center justify-center>
     <v-flex xs12 sm8 md4>
-      <v-card elevation="6">
+      <v-card elevation="6" class="mx-auto my-12" width="700">
       <div class>
         <v-toolbar flat dense color="#303F9F" dark>
           <v-toolbar-title>Login</v-toolbar-title>
@@ -31,7 +31,7 @@
             <br>
             
 
-            <div class="error" v-html="error"/>
+            <div class="error--text">{{ error }}</div>
             <br>
             <v-btn @click="login" color="#98fb98">Login</v-btn>
             <v-btn to="/register" color="#78909C">Create an account</v-btn>

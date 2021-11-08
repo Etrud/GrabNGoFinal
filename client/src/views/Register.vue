@@ -1,7 +1,7 @@
 <template>
   <v-container fluid column>
     <v-flex xs6 offset-xs3>
-      <v-card elevation="6">
+      <v-card elevation="6" class="mx-auto my-12" width="700">
         <div class>
           <v-toolbar flat dense color="#303F9F" dark>
             <v-toolbar-title>Register</v-toolbar-title>
@@ -70,8 +70,7 @@
                 label="Phone #"
               />
             </form>
-            <div class="error" v-html="error" />
-            <br />
+            <div class="error--text">{{ error }}</div>
             <v-btn @click="register" color="#98fb98">Register</v-btn>
             <v-btn to="/login" color="#78909C">Already have an account?</v-btn>
           </div>
@@ -106,6 +105,7 @@ export default {
           address: this.address,
           phonenum: this.phonenum,
         });
+        this.$router.push('/login')
       } catch (error) {
         this.error = error.response.data.error;
       }
