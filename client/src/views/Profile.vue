@@ -8,7 +8,7 @@
             <v-spacer></v-spacer>
             <v-btn to="/profile/edit">Edit</v-btn>
           </v-toolbar>
-          <v-container fill-height fluid flex-column >
+          <v-container fill-height fluid flex-column>
             <v-row justify="center">
               <v-col justify="center">
                 <v-img
@@ -18,13 +18,26 @@
                   class="mx-auto"
                 ></v-img>
 
-                <v-card height="300" width="300" justify="center" class="mt-2" elevation="0">
+                <v-card
+                  height="300"
+                  width="300"
+                  justify="center"
+                  class="mt-2"
+                  elevation="1"
+                >
+                  <h4>
+                    <br />About Me <v-icon small color="" > mdi-account </v-icon>
+                  </h4>
+
+                  <hr />
                   <p><br />Employee ID: {{ getID }}</p>
+
                   <p>Name: {{ fullName }}</p>
                   <p>Email: {{ getEmail }}</p>
                   <p>Phone #: {{ getPhone }}</p>
                   <p>Address: {{ getAddress }}</p>
                 </v-card>
+                
               </v-col>
             </v-row>
           </v-container>
