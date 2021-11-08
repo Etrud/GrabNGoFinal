@@ -13,7 +13,11 @@
         <v-container>
           <v-row>
             <v-col cols="15" sm="14" md="10">
-              <v-text-field label="Event name*" required v-model="name"></v-text-field>
+              <v-text-field
+                label="Event name*"
+                required
+                v-model="name"
+              ></v-text-field>
             </v-col>
 
             <v-col cols="12">
@@ -26,11 +30,12 @@
               <v-select
                 :items="users"
                 label="Employee Assigned*"
-                item-text="firstname"
+                :item-text="item => 'ID: '+item.id+', '+item.firstname +' '+ item.lastname"
                 item-value="id"
                 v-model="employeeId"
                 required
-              ></v-select>
+              >
+              </v-select>
             </v-col>
             <v-col cols="12" sm="6">
               <v-color-picker
@@ -64,9 +69,9 @@ export default {
     users: null,
     datetime: "",
     end: "",
-    employeeId: '',
-    color:"",
-    name:"",
+    employeeId: "",
+    color: "",
+    name: "",
   }),
   async mounted() {
     //do a request to a backend for all users
@@ -77,19 +82,16 @@ export default {
     this.users = fullUser;
   },
   methods: {
-    getID : function(string){
-      return string.charAt(4)
-    },
     async createEvent() {
       try {
-         await scheduleservice.registerSchedule({
+        await scheduleservice.registerSchedule({
           name: this.name,
           start: this.datetime,
           end: this.end,
           employeeID: this.employeeId,
           color: this.color,
         });
-        this.$router.go()
+        this.$router.go();
       } catch (error) {
         this.error = error.response.data.error;
       }
