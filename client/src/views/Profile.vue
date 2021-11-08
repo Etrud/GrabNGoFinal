@@ -6,7 +6,7 @@
           <v-toolbar flat dense color="tertiary" dark>
             <v-toolbar-title>Your Profile Page</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn to="/profile/edit" color="accent">Edit</v-btn>
+            <v-btn to="/profile/edit" color="accent">Edit<v-icon small color="" > mdi-pencil </v-icon></v-btn>
           </v-toolbar>
           <v-container fill-height fluid flex-column>
             <v-row justify="center">
@@ -23,6 +23,8 @@
                   width="300"
                   justify="center"
                   class="mt-2"
+                  color="tertiary lighten-1"
+                  dark
                   elevation="1"
                 >
                   <h4>

@@ -3,7 +3,7 @@
     <v-flex xs6 offset-xs3>
       <v-card elevation="6">
         <div class>
-          <v-toolbar flat dense color="#303F9F" dark>
+          <v-toolbar flat dense color="tertiary" dark>
             <v-toolbar-title>Punch Page</v-toolbar-title>
           </v-toolbar>
           <v-container class="mt-5 pb-10">
@@ -35,7 +35,7 @@
       </v-card>
       <v-card elevation="6" class="mt-5">
         <div class>
-          <v-toolbar flat dense color="#303F9F" dark>
+          <v-toolbar flat dense color="tertiary" dark>
             <v-toolbar-title>Your Punch History</v-toolbar-title>
           </v-toolbar>
           <v-container class="mt-5 pb-10" id="printMe">
@@ -53,7 +53,7 @@
 
       <v-card elevation="6" class="mt-5">
         <div class>
-          <v-toolbar flat dense color="#303F9F" dark>
+          <v-toolbar flat dense color="tertiary" dark>
             <v-toolbar-title>All Punches</v-toolbar-title>
           </v-toolbar>
           <v-container class="mt-5 pb-10" id="printMe2">

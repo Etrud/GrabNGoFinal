@@ -16,7 +16,7 @@
           <v-btn color="accent" class="white--text"   to="/login"  ml-2>Login / Signup<v-icon>mdi-login</v-icon></v-btn>
         </v-card>
 
-        <v-card flat rounded class="d-flex justify-end mr-6 pa-2 " pr-2
+        <v-card flat rounded class="d-flex justify-end mr-6 pa-2 " pr-2 color="secondary" dark
           v-if="$store.state.isUserLoggedIn">
           Logged in as:&nbsp;<router-link to="/profile">{{email}}</router-link>
         </v-card>
@@ -125,7 +125,7 @@
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -140,7 +140,7 @@
 #nav a {
   font-weight: bold;
    text-decoration: none;
-  color: #2c3e50;
+  color: #ffffff;
 }
 
 #nav a.router-link-exact-active {

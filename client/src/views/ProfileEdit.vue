@@ -3,7 +3,7 @@
     <v-flex xs6 offset-xs3>
       <v-card elevation="6">
         <div class>
-          <v-toolbar flat dense color="#303F9F" dark>
+          <v-toolbar flat dense color="tertiary" dark>
             <v-toolbar-title>Editing Profile</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn @click="update" color="success">Save</v-btn>

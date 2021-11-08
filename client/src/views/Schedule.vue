@@ -3,7 +3,7 @@
     <v-flex xs6 offset-xs3 >
       <v-card elevation="6">
         <div class>
-          <v-toolbar flat dense color="#303F9F" dark>
+          <v-toolbar flat dense color="tertiary" dark>
             <v-toolbar-title>Grab N Go Schedule</v-toolbar-title>
           </v-toolbar>
           <v-container mt-5>
@@ -17,15 +17,14 @@
       </v-card>
       <v-card elevation="6" class="mt-3">
         <div class>
-          <v-toolbar flat dense color="#303F9F" dark>
-            
+          <v-toolbar flat dense color="tertiary" dark>
+           <v-toolbar-title>User Commands</v-toolbar-title> 
           </v-toolbar>
           <v-container mt-5>
             <v-row justify="center">
-              <v-col>
-                <v-btn>Request day off</v-btn>
-                <v-btn>Other button</v-btn>
-                <v-btn>Other button</v-btn>
+              <v-col class="mb-5">
+                <requestDayOff/>
+
               </v-col>
             </v-row>
           </v-container>
@@ -33,13 +32,16 @@
       </v-card>
       <v-card elevation="6" class="mt-3">
         <div class>
-          <v-toolbar flat dense color="#303F9F" dark>
+          <v-toolbar flat dense color="tertiary" dark>
             <v-toolbar-title>Admin Settings</v-toolbar-title>
           </v-toolbar>
           <v-container mt-5>
             <v-row justify="center">
               <v-col>
                 <addEvent/>
+                
+              </v-col>
+              <v-col>
                 <calendarTable/>
               </v-col>
             </v-row>
@@ -53,10 +55,11 @@
 
 <script>
 import Calendar from "@/components/Calendar.vue";
+import requestDayOff from "@/components/requestDayOff.vue";
 import addEvent from "@/components/addEvent.vue";
 import calendarTable from "@/components/calendarTable.vue";
 
 export default {
-  components: { Calendar, addEvent, calendarTable },
+  components: { Calendar, addEvent, calendarTable, requestDayOff },
 }
 </script>

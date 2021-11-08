@@ -3,7 +3,7 @@
     <v-flex xs6 offset-xs3>
       <v-card elevation="6">
         <div class>
-          <v-toolbar flat dense color="#303F9F" dark>
+          <v-toolbar flat dense color="tertiary" dark>
             <v-toolbar-title>Contact Book</v-toolbar-title>
           </v-toolbar>
           <v-container mt-5 id="printMe">
@@ -13,7 +13,8 @@
                   :elevation="3"
                   height="300"
                   width="300"
-                  color="indigo lighten-5"
+                  color="secondary lighten-1"
+                  dark
                 >
                   <v-row
                     class="fill-height"

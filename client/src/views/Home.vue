@@ -23,7 +23,7 @@
       <v-card elevation="6">
         <div class>
           <v-toolbar flat dense color="tertiary" dark>
-            <v-toolbar-title>Your Profile Page</v-toolbar-title>
+            <v-toolbar-title>Your Next Few Days...</v-toolbar-title>
           </v-toolbar>
           <v-container mt-5>
             <yourCalendar/>

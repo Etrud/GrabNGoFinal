@@ -1,15 +1,15 @@
 <template>
-  <v-container fluid column>
-    <v-flex xs6 offset-xs3>
-      <v-card elevation="6">
+  <v-container fill-height fluid flex-column min>
+    <v-flex class="pa-5">
+      <v-card elevation="6" class="mx-auto my-12" width="700">
         <div class>
-          <v-toolbar flat dense color="#303F9F" dark>
+          <v-toolbar flat dense color="tertiary" dark>
             <v-toolbar-title
               >{{ user.firstname }}'s Profile Page</v-toolbar-title
             >
             <v-spacer></v-spacer>
           </v-toolbar>
-          <v-container fill-height fluid>
+          <v-container fill-height fluid flex-column>
             <v-row justify="center">
               <v-col justify="center">
                 <v-img
@@ -18,8 +18,10 @@
                   src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
                   class="mx-auto mb-5"
                 ></v-img>
-                <v-card max-width="315">
+                <v-card height="300" width="300">
                   <p><br />Employee ID: {{ user.id }}</p>
+                  <hr />
+                  <br />
                   <p>Name: {{ user.firstname }} {{ user.lastname }}</p>
                   <p>Email: {{ user.email }}</p>
                   <p>Phone #: {{ user.phonenum | phoneFix }}</p>
@@ -33,14 +35,15 @@
       </v-card>
       <v-card elevation="6" class="mt-3">
         <div class>
-          <v-toolbar flat dense color="#303F9F" dark>
+          <v-toolbar flat dense color="tertiary" dark>
             Admin Controls
           </v-toolbar>
           <v-container mt-5>
             <v-row justify="center">
               <v-col>
-                <editUser/>
-                <deleteUser/>
+                <div class="my-3"><editUser /></div>
+                <br/>
+                <div class="my-3"> <deleteUser /></div>
               </v-col>
             </v-row>
           </v-container>
@@ -52,11 +55,11 @@
 
 <script>
 import contactservice from "@/services/contactservice";
-import deleteUser from "@/components/deleteUser"
-import editUser from "@/components/editUser"
+import deleteUser from "@/components/deleteUser";
+import editUser from "@/components/editUser";
 
 export default {
-  components:{deleteUser,editUser},
+  components: { deleteUser, editUser },
   data() {
     return {
       user: {},
