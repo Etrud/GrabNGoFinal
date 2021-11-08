@@ -76,9 +76,6 @@ export default {
   async mounted() {
     //do a request to a backend for all users
     const fullUser = (await contactservice.index()).data;
-    // const updatedUser = fullUser.map(
-    //   (user) => "ID: " + user.id + ", " + user.firstname + " " + user.lastname
-    // );
     this.users = fullUser;
   },
   methods: {
