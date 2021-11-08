@@ -23,9 +23,9 @@
                   width="300"
                   justify="center"
                   class="mt-2"
-                  color="tertiary lighten-1"
-                  dark
-                  elevation="1"
+                  color=""
+                  
+                  elevation="0"
                 >
                   <h4>
                     <br /> <v-icon med color="" > mdi-account </v-icon>&nbsp;About Me
