@@ -79,8 +79,8 @@ export default {
       this.dialog = true; // activate dialog after assigning selected items
     },
     getColor(punchMessage) {
-      if (punchMessage == true) return "green";
-      else if (punchMessage == false) return "red";
+      if (punchMessage == "CLOCK IN") return "green";
+      else if (punchMessage == "CLOCK OUT") return "red";
       else return "green";
     },
     async deleteItem(id) {
@@ -100,6 +100,12 @@ export default {
       preChanged[i].punchTime = moment(preChanged[i].punchTime).format(
         "YYYY-MM-DD hh:mm:ss a"
       );
+      if (preChanged[i].punchMessage == true) {
+        preChanged[i].punchMessage = "CLOCK IN"
+      } 
+      else if (preChanged[i].punchMessage == false){
+        preChanged[i].punchMessage = "CLOCK OUT"
+      } 
       //console.log( preChanged[i].punchTime )
     }
 
