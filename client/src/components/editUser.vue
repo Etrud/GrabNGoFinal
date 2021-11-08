@@ -30,6 +30,7 @@
                 <v-text-field
                   label="First name*"
                   required
+                  v-model="firstname"
                 ></v-text-field>
               </v-col>
 
@@ -43,18 +44,21 @@
                   hint="example of persistent helper text"
                   persistent-hint
                   required
+                   v-model="lastname"
                 ></v-text-field>
               </v-col>
               <v-col cols="12">
                 <v-text-field
                   label="Email*"
                   required
+                   v-model="email"
                 ></v-text-field>
               </v-col>
               <v-col cols="12">
                 <v-text-field
                   label="Address*"
                   required
+                   v-model="address"
                 ></v-text-field>
               </v-col>
               <v-col
@@ -63,8 +67,9 @@
               >
                 <v-text-field
                   label="Phone Number*"
-                  type="password"
+                  
                   required
+                   v-model="phonenum"
                 ></v-text-field>
               </v-col>
               
@@ -101,7 +106,22 @@ export default {
   data() {
     return {
       dialog: false,
+      id: "",
+      firstname:"",
+      lastname: "",
+      email: "",
+      phonenum:"",
+      address: "",
     };
+  },
+ async mounted(){
+    const fullUser = (await contactservice.show(this.$store.state.route.params.id)).data
+    console.log(fullUser)
+    this.firstname = fullUser.firstname
+    this.lastname = fullUser.lastname
+    this.email = fullUser.email
+    this.phonenum = fullUser.phonenum
+    this.address = fullUser.address
   },
   methods: {
     async deleteUser() {
