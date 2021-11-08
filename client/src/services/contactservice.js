@@ -9,6 +9,8 @@ export default {
     },
     deleteUser(userId) {
         return api().post(`users/delete/${userId}`)
+    },
+    updateUser(userId, creds) {
+        return api().post(`users/edit/${userId}`, creds)
     }
-
 }

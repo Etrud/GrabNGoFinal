@@ -89,7 +89,7 @@
           <v-btn
             color="blue darken-1"
             text
-            @click="dialog = false"
+            @click="updateUser"
           >
             Save
           </v-btn>
@@ -124,11 +124,18 @@ export default {
     this.address = fullUser.address
   },
   methods: {
-    async deleteUser() {
+    async updateUser() {
       try {
-        await contactservice.deleteUser(this.$store.state.route.params.id)
+        await contactservice.updateUser(this.$store.state.route.params.id,{
+          email: this.email,
+          password: this.password,
+          firstname: this.firstname,
+          lastname: this.lastname,
+          address: this.address,
+          phonenum: this.phonenum,
+        })
         this.dialog = false
-        this.$router.push('/contact')
+        this.$router.go()
       } catch (error) {
         this.error = error.response.data.error;
       }
