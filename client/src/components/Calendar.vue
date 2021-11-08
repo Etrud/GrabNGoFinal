@@ -1,5 +1,6 @@
 <template>
   <div>
+     <h1 id="datediv">{{new Date().toDateString()}}</h1>
     <v-sheet
       tile
       height="54"
@@ -54,6 +55,7 @@
         v-model="value"
         :weekdays="weekday"
         :type="type"
+        first-time="09:00"
         :events="events"
         :event-overlap-mode="mode"
         :event-overlap-threshold="30"
