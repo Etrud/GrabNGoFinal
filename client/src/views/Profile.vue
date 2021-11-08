@@ -26,7 +26,7 @@
                   elevation="1"
                 >
                   <h4>
-                    <br />About Me <v-icon small color="" > mdi-account </v-icon>
+                    <br /> <v-icon med color="" > mdi-account </v-icon>&nbsp;About Me
                   </h4>
 
                   <hr />
