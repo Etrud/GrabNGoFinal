@@ -6,7 +6,7 @@
           <v-toolbar flat dense color="#303F9F" dark>
             <v-toolbar-title>Editing Profile</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn @click="update">Save</v-btn>
+            <v-btn @click="update" color="success">Save</v-btn>
 
             <v-btn to="/profile">Back</v-btn>
           </v-toolbar>

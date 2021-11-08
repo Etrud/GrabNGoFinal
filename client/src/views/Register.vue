@@ -3,7 +3,7 @@
     <v-flex xs6 offset-xs3>
       <v-card elevation="6" class="mx-auto my-12" width="700">
         <div class>
-          <v-toolbar flat dense color="#303F9F" dark>
+          <v-toolbar flat dense color="secondary" dark>
             <v-toolbar-title>Register</v-toolbar-title>
           </v-toolbar>
           <div class="pl-4 pr-4 pt-4 pb-2">
@@ -71,8 +71,8 @@
               />
             </form>
             <div class="error--text">{{ error }}</div>
-            <v-btn @click="register" color="#98fb98">Register</v-btn>
-            <v-btn to="/login" color="#78909C">Already have an account?</v-btn>
+            <v-btn @click="register" color="success">Register</v-btn>
+            <v-btn to="/login" color="accent">Already have an account?</v-btn>
           </div>
         </div>
       </v-card>

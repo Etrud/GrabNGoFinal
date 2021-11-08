@@ -3,10 +3,10 @@
     <v-flex class="pa-5">
       <v-card elevation="6" class="mx-auto my-12" width="700">
         <div class>
-          <v-toolbar flat dense color="#303F9F" dark>
+          <v-toolbar flat dense color="tertiary" dark>
             <v-toolbar-title>Your Profile Page</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn to="/profile/edit">Edit</v-btn>
+            <v-btn to="/profile/edit" color="accent">Edit</v-btn>
           </v-toolbar>
           <v-container fill-height fluid flex-column>
             <v-row justify="center">

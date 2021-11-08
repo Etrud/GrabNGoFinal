@@ -31,12 +31,13 @@ const vuetify = new Vuetify({
   theme: {
     themes: {
       light: {
-        primary: '#1976D2',
-        secondary: '#424242',
-        accent: '#82B1FF',
+        primary: '#607d8b',
+        secondary: '#60688b',
+        tertiary: '#60688b',
+        accent: '#ff6f51',
         error: '#FF5252',
         info: '#2196F3',
-        success: '#4CAF50',
+        success: '#90ee90',
         warning: '#FFC107',
       },
       dark: {
