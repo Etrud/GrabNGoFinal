@@ -8,7 +8,7 @@ import { sync } from 'vuex-router-sync'
 import 'vuetify/dist/vuetify.min.css' 
 import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
 import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
-import colors from 'vuetify/lib/util/colors'
+//import colors from 'vuetify/lib/util/colors'
 import store from '@/store/store'
 
 Vue.config.productionTip = false
@@ -31,10 +31,13 @@ const vuetify = new Vuetify({
   theme: {
     themes: {
       light: {
-        primary: '#8C7AA9',
-        secondary: colors.grey.darken1,
-        accent: '#7192BE',
-        error: colors.red.accent3,
+        primary: '#1976D2',
+        secondary: '#424242',
+        accent: '#82B1FF',
+        error: '#FF5252',
+        info: '#2196F3',
+        success: '#4CAF50',
+        warning: '#FFC107',
       },
       dark: {
         
