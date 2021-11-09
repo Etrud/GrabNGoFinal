@@ -16,6 +16,7 @@
         </v-btn>
       </template>
       <v-card>
+        <v-form v-model="isFormValid" autocomplete="off" lazy-validation>
         <v-card-title>
           <span class="text-h5">User Profile</span>
         </v-card-title>
@@ -31,6 +32,9 @@
                   label="First name*"
                   required
                   v-model="firstname"
+                  :rules="[rules.required, rules.counter , rules.name]"
+                  counter
+                  maxlength="35"
                 ></v-text-field>
               </v-col>
 
@@ -41,9 +45,11 @@
               >
                 <v-text-field
                   label="Last name*"
-                  hint="example of persistent helper text"
                   persistent-hint
                   required
+                  :rules="[rules.required, rules.counter , rules.name]"
+                  counter
+                  maxlength="35"
                    v-model="lastname"
                 ></v-text-field>
               </v-col>
@@ -52,13 +58,17 @@
                   label="Email*"
                   required
                    v-model="email"
+                    :rules="[rules.required, rules.email]"
                 ></v-text-field>
               </v-col>
               <v-col cols="12">
                 <v-text-field
                   label="Address*"
                   required
-                   v-model="address"
+                  v-model="address"
+                  :rules="[rules.required, rules.addcounter]"
+                  counter
+                  maxlength="50"
                 ></v-text-field>
               </v-col>
               <v-col
@@ -67,7 +77,8 @@
               >
                 <v-text-field
                   label="Phone Number*"
-                  
+                                         :rules="[rules.required, rules.phone, rules.phonecounter, rules.phonecounter2]"
+
                   required
                    v-model="phonenum"
                 ></v-text-field>
@@ -89,11 +100,13 @@
           <v-btn
             color="blue darken-1"
             text
+            :disabled="!isFormValid"
             @click="updateUser"
           >
             Save
           </v-btn>
         </v-card-actions>
+        </v-form>
       </v-card>
     </v-dialog>
   </v-row>
@@ -105,6 +118,20 @@ import contactservice from "../services/contactservice";
 export default {
   data() {
     return {
+      rules: {
+          required: value => !!value || 'Required.',
+          name: value => /^([^0-9]*)$/.test(value) || 'No numbers allowed',
+          phone: value => /^[0-9]*$/.test(value) || 'Only numbers allowed',
+          counter: value => value.length <= 35 || 'Max 35 characters',
+          phonecounter: value => value.length <= 10 || 'Max 10 characters',
+          phonecounter2: value => value.length >= 10 || 'No less 10 characters',
+          addcounter: value => value.length <= 50 || 'Max 50 characters',
+          email: value => {
+            const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            return pattern.test(value) || 'Invalid e-mail.'
+          },},
+       isFormValid: false,
+      error: null,
       dialog: false,
       id: "",
       firstname:"",
@@ -112,7 +139,7 @@ export default {
       email: "",
       phonenum:"",
       address: "",
-    };
+    }
   },
  async mounted(){
     const fullUser = (await contactservice.show(this.$store.state.route.params.id)).data
