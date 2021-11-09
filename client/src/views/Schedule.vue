@@ -31,7 +31,7 @@
         </div>
       </v-card>
       <v-card elevation="6" class="mt-3">
-        <div class>
+        <div class v-show="this.$store.state.user.isAdmin == true">
           <v-toolbar flat dense color="tertiary" dark>
             <v-toolbar-title>Admin Settings</v-toolbar-title>
           </v-toolbar>

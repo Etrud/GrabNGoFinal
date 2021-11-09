@@ -33,7 +33,7 @@
           </v-container>
         </div>
       </v-card>
-      <v-card elevation="6" class="mt-3">
+      <v-card elevation="6" class="mt-3" v-show="this.$store.state.user.isAdmin == true">
         <div class>
           <v-toolbar flat dense color="tertiary" dark>
             Admin Controls

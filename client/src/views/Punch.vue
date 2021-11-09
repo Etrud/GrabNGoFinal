@@ -52,7 +52,7 @@
 
 
       <v-card elevation="6" class="mt-5">
-        <div class>
+        <div v-show= "this.$store.state.user.isAdmin == true">
           <v-toolbar flat dense color="tertiary" dark>
             <v-toolbar-title>All Punches</v-toolbar-title>
           </v-toolbar>
