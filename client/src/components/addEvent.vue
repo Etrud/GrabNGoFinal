@@ -16,15 +16,16 @@
               <v-text-field
                 label="Event name*"
                 required
+                outlined
                 v-model="name"
               ></v-text-field>
             </v-col>
 
             <v-col cols="12">
-              <VueCtkDateTimePicker v-model="datetime" />
+              <VueCtkDateTimePicker v-model="datetime" label="Start date & time*" />
             </v-col>
             <v-col cols="12">
-              <VueCtkDateTimePicker v-model="end" />
+              <VueCtkDateTimePicker v-model="end" label="End date & time*" />
             </v-col>
             <v-col cols="12" sm="6">
               <v-select
@@ -32,6 +33,7 @@
                 label="Employee Assigned*"
                 :item-text="item => 'ID: '+item.id+', '+item.firstname +' '+ item.lastname"
                 item-value="id"
+                outlined
                 v-model="employeeId"
                 required
               >

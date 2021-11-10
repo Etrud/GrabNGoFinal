@@ -41,7 +41,14 @@ const vuetify = new Vuetify({
         warning: '#FFC107',
       },
       dark: {
-        
+        primary: '#082c6c',
+        secondary: '#878683',
+        tertiary: '#2069e0',
+        accent: '#ff6f51',
+        error: '#FF5252',
+        info: '#2196F3',
+        success: '#90ee90',
+        warning: '#FFC107',
       },
   },
 }}
