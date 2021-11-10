@@ -64,6 +64,7 @@
             </v-row>
           </v-container>
           <v-btn class="mb-3" @click="print2">Print</v-btn>
+          <addPunch/>
         </div>
       </v-card>
     </v-flex>
@@ -74,6 +75,7 @@
 import Clock from "@/components/Clock"
 import punchHistory from "@/components/punchHistory"
 import punchAll from "@/components/punchAll"
+import addPunch from "@/components/addPunch"
 import punchservice from '../services/punchservice'
 
 export default {
@@ -87,7 +89,7 @@ export default {
     }
   },
  
-  components: { Clock, punchHistory, punchAll },
+  components: { Clock, punchHistory, punchAll, addPunch },
   async mounted() {
 
   },
