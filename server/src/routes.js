@@ -23,6 +23,9 @@ module.exports = (app) => {
   app.get('/schedule/:userId',
     schedulecontroller.show)
 
+  app.get('/schedule/next/:userId',
+    schedulecontroller.showNext)
+
   app.post('/schedule/delete/:scheduleId',
     schedulecontroller.deleteSchedule)
 

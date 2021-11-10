@@ -52,6 +52,28 @@ module.exports = {
 
     }
   },
+  async showNext(req, res) {
+    const { Op } = require("sequelize");
+    try {
+      const schedules = await Schedule.findAll({
+        limit: 1,
+        order: [['start', 'ASC']],
+        where: {
+          employeeID:  {[Op.eq]:req.params.userId} ,
+          
+          start:  { 
+            [Op.gte]: new Date(),
+          },
+        }
+      })
+      res.send(schedules)
+    } catch (err) {
+      res.status(500).send({
+        error: 'An error occured grabbing next schedule'
+      })
+
+    }
+  },
   //delete schedule by pk
   async deleteSchedule(req, res) {
     try {
