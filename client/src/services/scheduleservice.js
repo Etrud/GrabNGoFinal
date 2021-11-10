@@ -10,6 +10,9 @@ export default {
     show(userId) {
         return api().get(`schedule/${userId}`)
     },
+    showNext(userId) {
+        return api().get(`schedule/next/${userId}`)
+    },
     deleteSchedule(scheduleId) {
         return api().post(`schedule/delete/${scheduleId}`)
     },

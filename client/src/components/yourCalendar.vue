@@ -3,7 +3,7 @@
     <v-col>
         
       <v-sheet height="700">
-          
+         <h3> Next Scheduled Event: {{nextDate}}</h3><br/>
         <v-calendar
           ref="calendar"
           :events="events"
@@ -28,19 +28,21 @@ import moment from 'moment';
     data: () => ({
       events: [],
       colors: ['blue', 'indigo', 'deep-purple', 'cyan', 'green', 'orange', 'grey darken-1'],
+      nextDate:[]
       }),
     mounted () {
       this.$refs.calendar.scrollToTime('11:00')
     },
      methods: {
       async getEvents () {
+        const oldNextDate=(await scheduleservice.showNext(this.$store.state.user.id)).data
+        this.nextDate =  moment(oldNextDate[0].start).format('YYYY-MM-DD hh:mm a')
+
         const preChanged = (await scheduleservice.show(this.$store.state.user.id)).data
         for(var i in preChanged)
         {
-          console.log( preChanged[i].start )
           preChanged[i].start = moment(preChanged[i].start).format('YYYY-MM-DD HH:mm')
           preChanged[i].end = moment(preChanged[i].end).format('YYYY-MM-DD HH:mm')
-          console.log( preChanged[i].start )
         }
         
         this.events = preChanged
