@@ -83,7 +83,7 @@ export default {
       try {
         await punchservice.registerPunch({
           employeeID: this.employeeId,
-          punchTime: this.datetime,
+          punchTime: this.punchTime,
           punchMessage: this.punchMessage,
         });
         this.$router.go();
