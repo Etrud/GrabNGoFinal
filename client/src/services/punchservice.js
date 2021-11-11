@@ -12,5 +12,8 @@ export default {
     },
     deletePunch(punchId) {
         return api().post(`punch/delete/${punchId}`)
+    },
+    getLastPunch(punchId) {
+        return api().get(`punch/last/${punchId}`)
     }
 }

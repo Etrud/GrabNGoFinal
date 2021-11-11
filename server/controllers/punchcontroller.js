@@ -51,12 +51,28 @@ module.exports = {
 
     }
   },
+  async showLast(req, res) {
+    try {
+      const punch = await Punch.findOne({
+        where: {
+          employeeID: req.params.userId
+        },
+        order: [ [ 'punchTime', 'DESC' ]],
+      })
+      res.send(punch)
+    } catch (err) {
+      res.status(500).send({
+        error: 'An error occured grabbing last punch'
+      })
+
+    }
+  },
   async deletePunch(req, res) {
     try {
       const punch = await Punch.findByPk(req.params.punchId).catch(e => {
         console.log(e.message)
-     })
-     console.log(punch)
+      })
+      console.log(punch)
       await punch.destroy()
       res.send(null)
 
@@ -65,7 +81,7 @@ module.exports = {
         error: 'Error has occured during deletion of punch'
       })
     }
-  
+
   },
   //edit punch by pk
   async editPunch(req, res) {

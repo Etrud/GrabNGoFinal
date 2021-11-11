@@ -58,6 +58,9 @@ module.exports = (app) => {
   app.get('/punch/:userId',
     punchcontroller.show)
 
+  app.get('/punch/last/:userId',
+    punchcontroller.showLast)
+
   app.post('/punch/delete/:punchId',
     punchcontroller.deletePunch)
 

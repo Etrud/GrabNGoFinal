@@ -18,7 +18,7 @@
                   src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
                   class="mx-auto mb-5"
                 ></v-img>
-                <v-card height="300" width="300">
+                <v-card height="375" width="300">
                   <p><br />Employee ID: {{ user.id }}</p>
                   <hr />
                   <br />
@@ -26,7 +26,9 @@
                   <p>Email: {{ user.email }}</p>
                   <p>Phone #: {{ user.phonenum | phoneFix }}</p>
                   <p>Address: {{ user.address }}</p>
+                  <p v-show="this.$store.state.user.isAdmin == true">is Admin: {{user.isAdmin}}</p>
                   <v-btn @click="emailTo" class="mb-5">Email Me</v-btn></v-card
+
                 >
               </v-col>
             </v-row>

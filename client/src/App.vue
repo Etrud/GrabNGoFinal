@@ -103,6 +103,7 @@
       logout() {
         this.$store.dispatch('setToken', null)
         this.$store.dispatch('setUser', null)
+         this.$store.dispatch('setClockin', null)
         this.$router.push({
           name: 'Launch'
         })

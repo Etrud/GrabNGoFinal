@@ -83,7 +83,18 @@
                    v-model="phonenum"
                 ></v-text-field>
               </v-col>
-              
+              <v-col cols="12" sm="6">
+             <v-select
+                :items="options"
+                label="User Role*"
+                item-text="message"
+                item-value="abbr"
+                outlined
+                v-model="isAdmin"
+                required
+              >
+              </v-select>
+            </v-col>
             </v-row>
           </v-container>
           <small>*indicates required field</small>
@@ -118,6 +129,10 @@ import contactservice from "../services/contactservice";
 export default {
   data() {
     return {
+       options: [
+          { message: 'User', abbr: false },
+          { message: 'Admin', abbr: true },
+        ],
       rules: {
           required: value => !!value || 'Required.',
           name: value => /^([^0-9]*)$/.test(value) || 'No numbers allowed',
@@ -137,6 +152,7 @@ export default {
       firstname:"",
       lastname: "",
       email: "",
+      isAdmin: "",
       phonenum:"",
       address: "",
     }
@@ -160,6 +176,7 @@ export default {
           lastname: this.lastname,
           address: this.address,
           phonenum: this.phonenum,
+          isAdmin: this.isAdmin
         })
         this.dialog = false
         this.$router.go()
