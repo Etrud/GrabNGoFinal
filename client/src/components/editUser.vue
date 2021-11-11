@@ -34,6 +34,7 @@
                   v-model="firstname"
                   :rules="[rules.required, rules.counter , rules.name]"
                   counter
+                  outlined
                   maxlength="35"
                 ></v-text-field>
               </v-col>
@@ -49,6 +50,7 @@
                   required
                   :rules="[rules.required, rules.counter , rules.name]"
                   counter
+                  outlined
                   maxlength="35"
                    v-model="lastname"
                 ></v-text-field>
@@ -57,6 +59,7 @@
                 <v-text-field
                   label="Email*"
                   required
+                  outlined
                    v-model="email"
                     :rules="[rules.required, rules.email]"
                 ></v-text-field>
@@ -68,6 +71,7 @@
                   v-model="address"
                   :rules="[rules.required, rules.addcounter]"
                   counter
+                  outlined
                   maxlength="50"
                 ></v-text-field>
               </v-col>
@@ -77,8 +81,8 @@
               >
                 <v-text-field
                   label="Phone Number*"
-                                         :rules="[rules.required, rules.phone, rules.phonecounter, rules.phonecounter2]"
-
+                  :rules="[rules.required, rules.phone, rules.phonecounter, rules.phonecounter2]"
+                  outlined
                   required
                    v-model="phonenum"
                 ></v-text-field>
@@ -91,6 +95,18 @@
                 item-value="abbr"
                 outlined
                 v-model="isAdmin"
+                required
+              >
+              </v-select>
+            </v-col>
+            <v-col cols="12" sm="6">
+             <v-select
+                :items="employoptions"
+                label="User Employed*"
+                item-text="message"
+                item-value="abbr"
+                outlined
+                v-model="isEmployed"
                 required
               >
               </v-select>
@@ -133,6 +149,10 @@ export default {
           { message: 'User', abbr: false },
           { message: 'Admin', abbr: true },
         ],
+        employoptions: [
+          { message: 'Employed', abbr: true },
+          { message: 'Not Employed', abbr: false },
+        ],
       rules: {
           required: value => !!value || 'Required.',
           name: value => /^([^0-9]*)$/.test(value) || 'No numbers allowed',
@@ -153,6 +173,7 @@ export default {
       lastname: "",
       email: "",
       isAdmin: "",
+      isEmployed: "",
       phonenum:"",
       address: "",
     }
@@ -165,6 +186,8 @@ export default {
     this.email = fullUser.email
     this.phonenum = fullUser.phonenum
     this.address = fullUser.address
+    this.isAdmin = fullUser.isAdmin
+    this.isEmployed = fullUser.isEmployed
   },
   methods: {
     async updateUser() {
@@ -176,7 +199,8 @@ export default {
           lastname: this.lastname,
           address: this.address,
           phonenum: this.phonenum,
-          isAdmin: this.isAdmin
+          isAdmin: this.isAdmin,
+          isEmployed: this.isEmployed
         })
         this.dialog = false
         this.$router.go()

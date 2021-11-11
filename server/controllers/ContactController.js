@@ -11,6 +11,9 @@ module.exports = {
    async index (req, res) {
       try {
         const users = await User.findAll({
+          where: {
+            isEmployed: true
+          }
         })
         res.send(users)
     }catch (err) {
