@@ -104,6 +104,8 @@
         this.$store.dispatch('setToken', null)
         this.$store.dispatch('setUser', null)
          this.$store.dispatch('setClockin', null)
+         window.localStorage.clear();
+    window.sessionStorage.clear();
         this.$router.push({
           name: 'Launch'
         })

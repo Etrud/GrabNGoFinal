@@ -60,13 +60,21 @@ export default {
           email: this.email,
           password: this.password,
         });
-        const clockinresponse = await punchservice.getLastPunch(
+        var clockinresponse = await punchservice.getLastPunch(
           response.data.user.id
         );
-        console.log(clockinresponse)
+        console.log(JSON.stringify(clockinresponse))
+        if (!Object.keys(clockinresponse.data).length){
+          console.log('I got here')
+          clockinresponse = false
+        }
+        else if (clockinresponse.data.punchMessage == true)
+        {
+          clockinresponse = true
+        }
         this.$store.dispatch("setToken", response.data.token);
         this.$store.dispatch("setUser", response.data.user);
-        this.$store.dispatch("setClockin", clockinresponse.data.punchMessage);
+        this.$store.dispatch("setClockin", clockinresponse);
         this.$router.push("/home");
       } catch (error) {
         this.error = error.response.data.error;
