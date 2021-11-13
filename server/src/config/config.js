@@ -3,6 +3,7 @@
 
 module.exports = {
   port: 8081,
+  hostname: '',
   db: {
     database: process.env.DB_NAME || 'u224913284_GrabNGo',
     user: process.env.DB_USER || 'u224913284_admin',
