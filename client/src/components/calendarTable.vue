@@ -7,8 +7,9 @@
       :items="schedules"
       :items-per-page="5"
       class="elevation-1"
-      ><template v-slot:[`item.actions`]="{ item }">
-        <v-icon small @click="triggerEditDialog(item)"> mdi-pencil </v-icon>
+      >
+      <template v-slot:[`item.actions`]="{ item }" >
+        <v-icon  small  @click="triggerEditDialog(item)" > mdi-pencil </v-icon>
          <v-icon small @click="triggerDeleteDialog(item)"> mdi-delete </v-icon>
       </template>
       <template v-slot:[`item.color`]="{ item }">
@@ -23,7 +24,7 @@
         <v-dialog v-model="deleteDialog" persistent max-width="290">
           <v-card>
             <v-card-title class="text-h5">
-              Are you sure you want to delete this punch?
+              Are you sure you want to delete this event?
             </v-card-title>
             <v-card-text
               >This will be a permanent deletion of the data.</v-card-text

@@ -2,13 +2,14 @@
   <v-row>
     <v-col>
         
-      <v-sheet height="700">
+      <v-sheet height="600">
          <h3> Next Scheduled Event: {{nextDate}}</h3><br/>
+  
         <v-calendar
           ref="calendar"
           :events="events"
           :event-color="getEventColor"
-          type="4day"
+          type="week"
           @change="getEvents"
           first-time="09:00"
         >
