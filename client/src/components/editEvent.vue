@@ -1,8 +1,5 @@
 <template>
   <v-dialog v-model="dialog" persistent max-width="600px">
-    <template v-slot:activator="{ on, attrs }">
-      <v-icon small v-bind="attrs" v-on="on"> mdi-pencil </v-icon>
-    </template>
     <v-card>
       <v-card-title>
         <span class="text-h5">Edit Event</span>
@@ -68,6 +65,7 @@ import contactservice from "@/services/contactservice";
     //do a request to a backend for all users
     const fullUser = (await contactservice.index()).data
     this.users = fullUser
+    
 }
   }
   

@@ -64,27 +64,22 @@ export default {
       var last = JSON.stringify(this.$store.state.user.lastname);
 
       var newName = first + " " + last;
-      console.log(newName);
       return newName.replace(/['"]+/g, "");
     },
     getID: function () {
       var id = JSON.stringify(this.$store.state.user.id);
-      console.log(id);
       return id.replace(/['"]+/g, "");
     },
     getEmail: function () {
       var email = JSON.stringify(this.$store.state.user.email);
-      console.log(email);
       return email.replace(/['"]+/g, "");
     },
     getPhone: function () {
       var phone = JSON.stringify(this.$store.state.user.phonenum);
-      console.log(phone);
       return phone.replace(/["'](\d{3})(\d{3})(\d{4})["']/, "($1) $2-$3");
     },
     getAddress: function () {
       var address = JSON.stringify(this.$store.state.user.address);
-      console.log(address);
       return address.replace(/['"]+/g, "");
     },
   },

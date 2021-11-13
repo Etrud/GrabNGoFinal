@@ -72,6 +72,10 @@ export default {
         {
           clockinresponse = true
         }
+        else{
+          clockinresponse = false
+        }
+        console.log(clockinresponse)
         this.$store.dispatch("setToken", response.data.token);
         this.$store.dispatch("setUser", response.data.user);
         this.$store.dispatch("setClockin", clockinresponse);

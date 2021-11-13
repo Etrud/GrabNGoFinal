@@ -15,5 +15,8 @@ export default {
     },
     getLastPunch(punchId) {
         return api().get(`punch/last/${punchId}`)
+    },
+    editPunch(punchId, credentials) {
+        return api().post(`punch/edit/${punchId}`, credentials)
     }
 }
