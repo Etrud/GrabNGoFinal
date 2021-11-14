@@ -1,6 +1,7 @@
 
 <template>
-  <div>
+  <div >
+    <div id="printMe2">
     <v-data-table
       dense
       :headers="headers"
@@ -18,7 +19,9 @@
         </v-chip>
       </template>
     </v-data-table>
- 
+    </div>
+    <br>
+    <v-btn @click="print2">Print</v-btn>
 
 
         <v-dialog v-model="deleteDialog" persistent max-width="290">
@@ -144,6 +147,10 @@ export default {
     };
   },
   methods: {
+    async print2 () {
+      // Pass the element id here
+      await this.$htmlToPaper('printMe2');
+    },
     triggerDeleteDialog(item) {
       this.selectedItem = item; // have to define in data section.
       this.deleteDialog = true; // activate dialog after assigning selected items

@@ -49,7 +49,7 @@
         <v-icon>mdi-chevron-right</v-icon>
       </v-btn>
     </v-sheet>
-    <v-sheet height="600">
+    <v-sheet height="600" id="printMe">
       <v-calendar
         ref="calendar"
         v-model="value"
@@ -63,6 +63,8 @@
         @change="getEvents"
       ></v-calendar>
     </v-sheet>
+    <br>
+    <v-btn @click="print">Print</v-btn>
   </div>
 </template>
 
@@ -90,6 +92,11 @@ import moment from 'moment';
       names: ['Meeting', 'Holiday', 'PTO', 'Travel', 'Event', 'Birthday', 'Conference', 'Party'],
     }),
     methods: {
+      
+      async print () {
+      // Pass the element id here
+      await this.$htmlToPaper('printMe');
+    },
       async getEvents () {
         const preChanged = (await scheduleservice.index()).data
         for(var i in preChanged)
