@@ -63,19 +63,16 @@ export default {
         var clockinresponse = await punchservice.getLastPunch(
           response.data.user.id
         );
-        console.log(JSON.stringify(clockinresponse))
-        if (!Object.keys(clockinresponse.data).length){
-          console.log('I got here')
-          clockinresponse = false
+        console.log(JSON.stringify(clockinresponse));
+        if (!Object.keys(clockinresponse.data).length) {
+          console.log("I got here");
+          clockinresponse = false;
+        } else if (clockinresponse.data.punchMessage == true) {
+          clockinresponse = true;
+        } else {
+          clockinresponse = false;
         }
-        else if (clockinresponse.data.punchMessage == true)
-        {
-          clockinresponse = true
-        }
-        else{
-          clockinresponse = false
-        }
-        console.log(clockinresponse)
+        console.log(clockinresponse);
         this.$store.dispatch("setToken", response.data.token);
         this.$store.dispatch("setUser", response.data.user);
         this.$store.dispatch("setClockin", clockinresponse);

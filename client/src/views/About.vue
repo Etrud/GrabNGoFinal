@@ -7,7 +7,9 @@
             <v-toolbar-title>Settings</v-toolbar-title>
           </v-toolbar>
           <v-container mt-5>
-            <v-btn @click="changeTheme" color="primary" rounded>Change Theme</v-btn>
+            <v-btn @click="changeTheme" color="primary" rounded
+              >Change Theme</v-btn
+            >
           </v-container>
         </div>
       </v-card>
@@ -24,8 +26,8 @@ export default {
   },
   methods: {
     changeTheme() {
-      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
-    }
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+    },
   },
 };
 </script>

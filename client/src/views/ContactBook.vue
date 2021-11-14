@@ -34,9 +34,12 @@
                         Name: {{ user.firstname + " " + user.lastname }}<br />
                         Email: {{ user.email }} <br />
                         Phone #: {{ user.phonenum | phoneFix }} <br />
-                        <v-btn class="mt-2" 
-                        :to="{name: 'Contact', params: {id: user.id}}">
-                        View</v-btn>
+                        <v-btn
+                          class="mt-2"
+                          :to="{ name: 'Contact', params: { id: user.id } }"
+                        >
+                          View</v-btn
+                        >
                       </p>
                     </v-col>
                   </v-row>
@@ -60,8 +63,8 @@ export default {
     return {
       users: null,
       dialog: false,
-      output: null
-    }
+      output: null,
+    };
   },
   async mounted() {
     //do a request to a backend for all users
@@ -71,10 +74,10 @@ export default {
     msg: String,
   },
   methods: {
-    async print () {
+    async print() {
       // Pass the element id here
-      await this.$htmlToPaper('printMe');
-    }
+      await this.$htmlToPaper("printMe");
+    },
   },
   filters: {
     phoneFix: function (phone) {
