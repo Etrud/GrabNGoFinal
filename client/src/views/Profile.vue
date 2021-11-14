@@ -19,7 +19,7 @@
                 ></v-img>
 
                 <v-card
-                  height="300"
+                  height="400"
                   width="300"
                   justify="center"
                   class="mt-2"
@@ -37,7 +37,8 @@
                   <p>Name: {{ fullName }}</p>
                   <p>Email: {{ getEmail }}</p>
                   <p>Phone #: {{ getPhone }}</p>
-                  <p>Address: {{ getAddress }}</p>
+                  <p>Address: {{ getAddress }}</p><br>
+                  <request-info-change/>
                 </v-card>
                 
               </v-col>
@@ -56,8 +57,9 @@
 
 
 <script>
+import RequestInfoChange from '../components/requestInfoChange.vue';
 export default {
-  components: {},
+  components: {RequestInfoChange},
   computed: {
     fullName: function () {
       var first = JSON.stringify(this.$store.state.user.firstname);
