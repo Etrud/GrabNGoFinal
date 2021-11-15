@@ -16,7 +16,7 @@ module.exports = {
                 new RegExp(`^[a-zA-Z]{2,32}$`)
             ),
             lastname: Joi.string().regex(
-                new RegExp(`^[a-zA-Z0-9]{2,32}$`)
+                new RegExp(`^[a-zA-Z]{2,32}$`)
             ),
             address: Joi.string().regex(
                 new RegExp(`[a-zA-Z0-9\s]{2,32}$`)
